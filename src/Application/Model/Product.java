@@ -1,6 +1,8 @@
 package Application.Model;
 
-import java.util.Date;
+import java.sql.Time;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class Product implements Component{
 
@@ -16,11 +18,13 @@ public class Product implements Component{
 
     private float price;
 
-    private Date expiry;
+
 
     private String categoryHierarchy;
 
-    public Product(String code, String name, String desc, int stockQty, int packQty, int qtyPerPack, float price, Date expiry,String categoryHierarchy) {
+    private LocalDateTime timeStamp;
+
+    public Product(String code, String name, String desc, int stockQty, int packQty, int qtyPerPack, float price,String categoryHierarchy) {
         this.code = code;
         this.name = name;
         this.desc = desc;
@@ -28,11 +32,11 @@ public class Product implements Component{
         this.packQty = packQty;
         this.qtyPerPack = qtyPerPack;
         this.price = price;
-        this.expiry = expiry;
         this.categoryHierarchy = categoryHierarchy;
     }
 
     public Product() {
+        timeStamp = null;
     }
 
     public String getCode() {
@@ -91,13 +95,6 @@ public class Product implements Component{
         this.price = price;
     }
 
-    public Date getExpiry() {
-        return expiry;
-    }
-
-    public void setExpiry(Date expiry) {
-        this.expiry = expiry;
-    }
 
     public String getCategoryHierarchy() {
         return categoryHierarchy;
@@ -105,6 +102,15 @@ public class Product implements Component{
 
     public void setCategoryHierarchy(String categoryHierarchy) {
         this.categoryHierarchy = categoryHierarchy;
+    }
+
+
+    public LocalDateTime getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(LocalDateTime timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     @Override
@@ -116,6 +122,15 @@ public class Product implements Component{
 
     @Override
     public String findCode() {
-        return String.valueOf(this.name.hashCode());
+
+        return this.name.concat(String.valueOf(this.timeStamp));
+    }
+
+    public static void main(String[] args)
+    {
+
+        LocalDateTime time = LocalDateTime.now();
+
+        System.out.println("Mohid".concat(String.valueOf(time)));
     }
 }

@@ -1,24 +1,32 @@
 package Application.Model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 
 public class Order extends ItemContainer{
    private String customerName;
+
+   private String name;
+
    private LocalDateTime timeStamp;
 
-    public Order(String customerName, LocalDateTime timeStamp) {
+   private float totalPrice;
+
+
+
+    public Order(String customerName, String name, LocalDateTime timeStamp, float totalPrice) {
         super();
         this.customerName = customerName;
+        this.name = name;
         this.timeStamp = timeStamp;
+        this.totalPrice = totalPrice;
     }
-
 
     public Order() {
         super();
         this.customerName = "";
         this.timeStamp = null;
+        totalPrice = 0.0F;
     }
 
     public void cancel()
@@ -26,13 +34,14 @@ public class Order extends ItemContainer{
         this.getItemMap().clear();
         customerName = "";
         timeStamp = null;
+        totalPrice = 0.0F;
     }
 
     public void generateInvoice()
     {
         Set<String> keys = super.getItemMap().keySet();
 
-        float totalPrice = 0.0F;
+        totalPrice = 0.0F;
 
         System.out.println("Item \t" + "Qty \t" + "Price \t" + "Total Price " );
         for(String s: keys)
@@ -60,5 +69,22 @@ public class Order extends ItemContainer{
 
     public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    public float getTotalPriceFromContainer()
+    {
+        return super.total();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTotalPrice(float totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

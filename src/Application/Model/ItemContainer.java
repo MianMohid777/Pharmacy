@@ -6,12 +6,16 @@ import java.util.Set;
 public abstract class ItemContainer {
 
     protected int id;
+    protected float totalPrice;
 
     private HashMap<String,Item> itemMap;
+
+
 
     public ItemContainer() {
         this.id = -1;
         this.itemMap = new HashMap<>();
+        totalPrice = 0.0F;
     }
 
     public int getId() {
@@ -49,7 +53,7 @@ public abstract class ItemContainer {
 
         Set<String> keys = itemMap.keySet();
 
-        float totalPrice = 0.0F;
+        totalPrice = 0.0F;
 
         for(String s: keys)
         {
@@ -61,6 +65,7 @@ public abstract class ItemContainer {
 
         return totalPrice;
     }
+
 
    abstract public void cancel();
 

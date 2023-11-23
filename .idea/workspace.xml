@@ -5,40 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bae72e10-bba0-4449-8f97-979391ae4ca4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PharamacyPos.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/Component.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/InventoryReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/ItemContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/Manager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/Report.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/SalesReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/Sales_Assistant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/Product_I.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/Connection/DB_Connection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/UserS_I.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryHierDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/OrderDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/IDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/Intermediate_IDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductStock_IDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Presentation/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mysql-connector-j-8.1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PharamacyPos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PharamacyPos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Model/ItemContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/ItemContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Model/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Model/Sales_Assistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Sales_Assistant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Service/Implementation/Product_I.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/ProductS_I.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Service/Implementation/UserService_I.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/Cataegory_IDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/CategoryHier_IDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/OrderProd_IDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/Order_IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/OrderProduct_IDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductCateg_IDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/Product_IDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/User_IDAO.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +57,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2YQsgPl6Q36vha6qt5B0NZeS9aA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -68,33 +69,41 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/FullStackMohid/IdeaProjects/PharamacyPos/src/Persistance",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/FullStackMohid/IdeaProjects/PharamacyPos/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/Persistance" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.UserController">
     <configuration name="Category" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application.Model.Category" />
       <module name="PharamacyPos" />
@@ -108,8 +117,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Product" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Application.Model.Product" />
+      <module name="PharamacyPos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Application.Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Presentation.UserController" />
+      <module name="PharamacyPos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Persistance.IDAO.DAO.UserDAO" />
+      <module name="PharamacyPos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Persistance.IDAO.DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UserController" />
+        <item itemvalue="Application.UserDAO" />
+        <item itemvalue="Application.Product" />
         <item itemvalue="Application.Category" />
       </list>
     </recent_temporary>
@@ -122,7 +173,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700469251700</updated>
-      <workItem from="1700469252949" duration="14502000" />
+      <workItem from="1700469252949" duration="28261000" />
+      <workItem from="1700676392042" duration="10234000" />
+      <workItem from="1700749109719" duration="12772000" />
+      <workItem from="1700769011057" duration="1117000" />
     </task>
     <servers />
   </component>

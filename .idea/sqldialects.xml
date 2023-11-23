@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryDAO.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryHierDAO.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/OrderDAO.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductCategoryDAO.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductDAO.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/UserDAO.java" dialect="MySQL" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/970b51fd-f441-474d-83fa-dce4553d08bb/console_2.sql" dialect="MySQL" />
+  </component>
+  <component name="SqlResolveMappings">
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryDAO.java" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;970b51fd-f441-474d-83fa-dce4553d08bb&quot;    },    &quot;group&quot;:{     &quot;@kind&quot;:&quot;schema&quot;,     &quot;node&quot;:{      &quot;name&quot;:{       &quot;@qname&quot;:&quot;PharmacyPos&quot;      }     }    }   }  } }}" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/OrderDAO.java" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;970b51fd-f441-474d-83fa-dce4553d08bb&quot;    },    &quot;group&quot;:{     &quot;@kind&quot;:&quot;schema&quot;,     &quot;node&quot;:{      &quot;name&quot;:{       &quot;@qname&quot;:&quot;PharmacyPos&quot;      }     }    }   }  } }}" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductCategoryDAO.java" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;970b51fd-f441-474d-83fa-dce4553d08bb&quot;    },    &quot;group&quot;:{     &quot;@kind&quot;:&quot;schema&quot;,     &quot;node&quot;:{      &quot;name&quot;:{       &quot;@qname&quot;:&quot;PharmacyPos&quot;      }     }    }   }  } }}" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductDAO.java" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;970b51fd-f441-474d-83fa-dce4553d08bb&quot;    },    &quot;group&quot;:{     &quot;@kind&quot;:&quot;schema&quot;,     &quot;node&quot;:{      &quot;name&quot;:{       &quot;@qname&quot;:&quot;PharmacyPos&quot;      }     }    }   }  } }}" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;970b51fd-f441-474d-83fa-dce4553d08bb&quot;    },    &quot;group&quot;:{     &quot;@kind&quot;:&quot;schema&quot;,     &quot;node&quot;:{      &quot;name&quot;:{       &quot;@qname&quot;:&quot;PharmacyPos&quot;      }     }    }   }  } }}" />
+    <file url="file://$PROJECT_DIR$/src/Persistance/IDAO/DAO/UserDAO.java" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;970b51fd-f441-474d-83fa-dce4553d08bb&quot;    },    &quot;group&quot;:{     &quot;@kind&quot;:&quot;schema&quot;,     &quot;node&quot;:{      &quot;name&quot;:{       &quot;@qname&quot;:&quot;PharmacyPos&quot;      }     }    }   }  } }}" />
+  </component>
+</project>

@@ -1,6 +1,7 @@
 package Application.Model;
 
 import javax.swing.plaf.synth.SynthTextAreaUI;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Category implements Component {
@@ -8,6 +9,8 @@ public class Category implements Component {
     private String code;
     private String name;
     private String desc;
+
+    private LocalDateTime timeStamp;
 
     private HashMap<String,Component> componentsMap;
 
@@ -50,6 +53,15 @@ public class Category implements Component {
         return code;
     }
 
+    public LocalDateTime getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(LocalDateTime timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+
     @Override
     public void display() {
 
@@ -66,7 +78,7 @@ public class Category implements Component {
     @Override
     public String findCode()
     {
-        return String.valueOf(this.name.hashCode());
+        return this.name.concat(String.valueOf(this.timeStamp));
     }
 
     public void add(Component c){
