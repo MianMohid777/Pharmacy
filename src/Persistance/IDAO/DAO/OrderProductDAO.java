@@ -4,6 +4,7 @@ import Persistance.Connection.DB_Connection;
 import Persistance.IDAO.Interface.OrderProduct_IDAO;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ public class OrderProductDAO implements OrderProduct_IDAO {
     public OrderProductDAO() throws SQLException {
         Connection conn = DB_Connection.getConnection();
         String query = "SELECT * FROM orderProd";
-        PreparedStatement statement = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        PreparedStatement statement = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
         rs = statement.executeQuery();
     }
     @Override
@@ -34,19 +35,19 @@ public class OrderProductDAO implements OrderProduct_IDAO {
     }
 
     @Override
-    public HashMap<Integer, Integer> getAllProductsByOrderId(int oid) throws SQLException {
+    public HashMap<Integer, String> getAllProductsByOrderId(int oid) throws SQLException {
 
         Connection conn = DB_Connection.getConnection();
         String query = "SELECT * FROM orderProd WHERE orderId = ?";
-        PreparedStatement statement = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        PreparedStatement statement = conn.prepareStatement(query);
         statement.setInt(1,oid);
         ResultSet set = statement.executeQuery();
 
-        HashMap<Integer,Integer> productMap = new HashMap<>();
+        HashMap<Integer,String> productMap = new HashMap<>();
 
         while(set.next())
         {
-            productMap.put(set.getInt(2), set.getInt(3));
+            productMap.put(set.getInt(2), set.getString(3));
 
         }
 

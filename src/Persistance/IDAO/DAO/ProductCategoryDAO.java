@@ -23,8 +23,8 @@ public class ProductCategoryDAO implements Intermediate_IDAO {
 
         rs.moveToInsertRow();
 
-        rs.updateObject(1,x);
-        rs.updateObject(2,y);
+        rs.updateObject(2,x);
+        rs.updateObject(3,y);
 
         rs.insertRow();
 

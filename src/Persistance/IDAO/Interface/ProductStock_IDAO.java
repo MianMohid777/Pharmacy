@@ -1,20 +1,24 @@
 package Persistance.IDAO.Interface;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
 public interface ProductStock_IDAO {
 
-    void save(int pid, int qty, Date expiry) throws SQLException;
+    void save(String pid, int qty, LocalDate expiry) throws SQLException;
 
-    int delete(int pid,Date expiry) throws SQLException;
+    int delete(Integer stockId) throws SQLException;
 
-    void update(int pid,int need) throws SQLException;
+    void update(String pid,int need) throws SQLException;
 
     List<Integer> checkExpiry()throws SQLException;
 
-    Vector<Object> getExpiredProduct(List<Integer> stockIds) throws SQLException;
+    HashMap<Integer,String> getExpiredProduct(List<Integer> stockIds) throws SQLException;
+
+    Integer findStock(Integer id, String code) throws SQLException;
 
 }

@@ -7,26 +7,24 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
+import java.time.LocalDate;
+import java.util.*;
 
 public class ProductStockDAO implements ProductStock_IDAO {
 
     private ResultSet rs;
-    ProductStockDAO() throws SQLException {
+    public ProductStockDAO() throws SQLException {
         Connection conn = DB_Connection.getConnection();
         String query = "SELECT * FROM ProductStock";
         PreparedStatement statement = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
         rs = statement.executeQuery();
     }
     @Override
-    public void save(int pid, int qty, Date expiry) throws SQLException {
+    public void save(String pid, int qty, LocalDate expiry) throws SQLException {
 
         rs.moveToInsertRow();
 
-        rs.updateString(2, String.valueOf(pid));
+        rs.updateString(2, pid);
         rs.updateString(3, String.valueOf(qty));
         rs.updateString(4, String.valueOf(expiry));
 
@@ -36,12 +34,12 @@ public class ProductStockDAO implements ProductStock_IDAO {
     }
 
     @Override
-    public int delete(int pid,Date expiry) throws SQLException {
+    public int delete(Integer stockId) throws SQLException {
 
         rs.absolute(0);
 
         int qty = 0;
-        while(rs.next() && (rs.getInt(2) != pid || rs.getDate(4) != expiry));
+        while(rs.next() && rs.getInt(1) != stockId);
 
         qty = rs.getInt(3);
 
@@ -54,13 +52,13 @@ public class ProductStockDAO implements ProductStock_IDAO {
     }
 
     @Override
-    public void update(int pid,int need) throws SQLException {
+    public void update(String pid,int need) throws SQLException {
 
         Connection conn = DB_Connection.getConnection();
 
-        String query = "SELECT * FROM ProductStock WHERE (expiryDate - curdate() > 0) AND pid = ? ORDER BY expiryDate";
-        PreparedStatement statement = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        statement.setInt(1,pid);
+        String query = "SELECT * FROM ProductStock WHERE (expiryDate - curdate() > 0) AND prodCode = ? ORDER BY expiryDate";
+        PreparedStatement statement = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        statement.setString(1,pid);
         ResultSet set = statement.executeQuery();
 
 
@@ -92,8 +90,8 @@ public class ProductStockDAO implements ProductStock_IDAO {
         List<Integer> stockIds = new LinkedList<>();
 
         Connection conn = DB_Connection.getConnection();
-        String query = " SELECT stockId FROM ProductStock WHERE (expiryDate - CURDATE() = 0)";
-        PreparedStatement statement = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        String query = " SELECT stockId,prodCode FROM ProductStock WHERE (expiryDate - CURDATE() <= 0) GROUP BY prodCode, stockId";
+        PreparedStatement statement = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_INSENSITIVE);
 
         ResultSet set = statement.executeQuery();
 
@@ -106,25 +104,38 @@ public class ProductStockDAO implements ProductStock_IDAO {
     }
 
     @Override
-    public Vector<Object> getExpiredProduct(List<Integer> stockIds) throws SQLException {
+    public HashMap<Integer,String> getExpiredProduct(List<Integer> stockIds) throws SQLException {
 
         rs.absolute(0);
-        Vector<Object> prodExp = new Vector<>();
+        HashMap<Integer,String> expiredMap = new HashMap<>();
         int i = 0;
 
 
-        while(rs.next())
+        while(rs.next() && i< stockIds.size())
         {
             int id = stockIds.get(i);
 
             if(rs.getInt(1)==id)
             {
-                prodExp.add(rs.getInt(2));
-                prodExp.add(rs.getInt(4));
+              expiredMap.put(id,rs.getString(2));
 
                 i++;
             }
         }
-        return prodExp;
+        return expiredMap;
+    }
+
+    @Override
+    public Integer findStock(Integer id, String code) throws SQLException {
+
+        Connection conn = DB_Connection.getConnection();
+
+        String query = "SELECT * FROM ProductStock WHERE stockId = ? AND prodCode = ?";
+        PreparedStatement statement = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_INSENSITIVE);
+        statement.setInt(1,id);
+        statement.setString(2,code);
+        ResultSet set = statement.executeQuery();
+
+        return (set.next() ? set.getInt(3):null);
     }
 }

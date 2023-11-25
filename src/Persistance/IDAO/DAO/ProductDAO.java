@@ -167,7 +167,7 @@ public class ProductDAO implements IDAO<Product> {
     public List<String> findBySearch(String search) throws SQLException {
         Connection conn = DB_Connection.getConnection();
         String query = "SELECT * FROM product WHERE prod_Name LIKE CONCAT(?,'%')";
-        PreparedStatement statement = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        PreparedStatement statement = conn.prepareStatement(query);
         statement.setString(1,search);
         ResultSet set = statement.executeQuery();
 
@@ -179,5 +179,46 @@ public class ProductDAO implements IDAO<Product> {
         }
 
         return searchResult;
+    }
+
+    public Product findByName(String name) throws SQLException {
+        Connection conn = DB_Connection.getConnection();
+        String query = "SELECT * FROM product WHERE prod_Name = ?";
+        PreparedStatement statement = conn.prepareStatement(query);
+        statement.setString(1,name);
+        ResultSet set = statement.executeQuery();
+
+        if(set.next())
+        {
+            Product p = new Product();
+
+            p.setName(set.getString(2));
+            p.setCode(set.getString(3));
+            p.setDesc(set.getString(4));
+
+
+            p.setPackQty(set.getInt(5));
+
+            p.setQtyPerPack(set.getInt(6));
+
+
+            p.setStockQty(set.getInt(7));
+
+
+            p.setPrice(set.getFloat(8));
+
+            return p;
+        }
+
+        return null;
+    }
+
+    public static void main(String[] args) throws SQLException {
+        ProductDAO dao = new ProductDAO();
+
+        for(String s: dao.findBySearch("Pa"))
+        {
+            System.out.println(s);
+        }
     }
 }

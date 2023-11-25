@@ -18,11 +18,10 @@ public class Product implements Component{
 
     private float price;
 
-
-
     private String categoryHierarchy;
 
     private LocalDateTime timeStamp;
+
 
     public Product(String code, String name, String desc, int stockQty, int packQty, int qtyPerPack, float price,String categoryHierarchy) {
         this.code = code;
@@ -123,14 +122,24 @@ public class Product implements Component{
     @Override
     public String findCode() {
 
-        return this.name.concat(String.valueOf(this.timeStamp));
+        String code = name.substring(0,2);
+        int num = (int) price;
+        code = code + String.valueOf(num) + ("Med") + name.hashCode();
+
+        this.code = code;
+
+        return code;
     }
 
     public static void main(String[] args)
     {
 
-        LocalDateTime time = LocalDateTime.now();
+        Product p = new Product();
+        p.setName("Panadol");
+        p.setPrice(20);
+        p.setQtyPerPack(12);
 
-        System.out.println("Mohid".concat(String.valueOf(time)));
+
+        System.out.println(p.findCode());
     }
 }

@@ -5,41 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bae72e10-bba0-4449-8f97-979391ae4ca4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/UserS_I.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryHierDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/OrderDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/IDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/Intermediate_IDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductStock_IDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Presentation/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mysql-connector-j-8.1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/CategoryS_I.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Presentation/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PharamacyPos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PharamacyPos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PharamacyPos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PharmacyPos.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Model/ItemContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/ItemContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Model/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Model/Sales_Assistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Sales_Assistant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Service/Implementation/Product_I.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/ProductS_I.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Service/Implementation/UserService_I.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/Cataegory_IDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/CategoryHier_IDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/OrderProd_IDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/Order_IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/OrderProduct_IDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductCateg_IDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/Product_IDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/User_IDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Service/Implementation/ProductS_I.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/ProductS_I.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryHierDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryHierDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/OrderProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/OrderProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductCategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductCategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/OrderProduct_IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/OrderProduct_IDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductStock_IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductStock_IDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,36 +89,10 @@
       <recent name="$PROJECT_DIR$/src/Persistance" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserController">
-    <configuration name="Category" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Application.Model.Category" />
-      <module name="PharamacyPos" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Application.Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Product" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Application.Model.Product" />
-      <module name="PharamacyPos" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Application.Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Presentation.UserController" />
-      <module name="PharamacyPos" />
+  <component name="RunManager" selected="Application.ManagerController">
+    <configuration name="CategoriesUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Presentation.CategoriesUI" />
+      <module name="PharmacyPos" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Presentation.*" />
@@ -143,9 +103,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Persistance.IDAO.DAO.UserDAO" />
-      <module name="PharamacyPos" />
+    <configuration name="ManagerController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Presentation.ManagerController" />
+      <module name="PharmacyPos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Product" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Application.Model.Product" />
+      <module name="PharmacyPos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Application.Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Persistance.IDAO.DAO.ProductDAO" />
+      <module name="PharmacyPos" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Persistance.IDAO.DAO.*" />
@@ -156,12 +142,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Presentation.UserController" />
+      <module name="PharmacyPos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Presentation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserController" />
-        <item itemvalue="Application.UserDAO" />
+        <item itemvalue="Application.ManagerController" />
+        <item itemvalue="Application.CategoriesUI" />
         <item itemvalue="Application.Product" />
-        <item itemvalue="Application.Category" />
+        <item itemvalue="Application.ProductDAO" />
+        <item itemvalue="Application.UserController" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +176,9 @@
       <workItem from="1700469252949" duration="28261000" />
       <workItem from="1700676392042" duration="10234000" />
       <workItem from="1700749109719" duration="12772000" />
-      <workItem from="1700769011057" duration="1117000" />
+      <workItem from="1700769011057" duration="2024000" />
+      <workItem from="1700771452239" duration="475000" />
+      <workItem from="1700772008568" duration="30614000" />
     </task>
     <servers />
   </component>

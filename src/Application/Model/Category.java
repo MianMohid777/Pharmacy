@@ -78,7 +78,10 @@ public class Category implements Component {
     @Override
     public String findCode()
     {
-        return this.name.concat(String.valueOf(this.timeStamp));
+        String code = name.substring(0,2);
+        code = code + name.hashCode();
+        this.code = code;
+        return code;
     }
 
     public void add(Component c){

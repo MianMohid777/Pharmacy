@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,8 +26,8 @@ public class CategoryHierDAO implements Intermediate_IDAO {
 
         rs.moveToInsertRow();
 
-        rs.updateInt(2,(Integer)x);
-        rs.updateInt(3,(Integer)y);
+        rs.updateObject(2,x);
+        rs.updateObject(3,y);
 
         rs.insertRow();
         rs.moveToCurrentRow();
@@ -37,27 +38,43 @@ public class CategoryHierDAO implements Intermediate_IDAO {
 
         rs.absolute(0);
 
-        while(rs.next() && (rs.getInt(1)!= (Integer)x || rs.getInt(2)!= (Integer)y ));
+        while(rs.next() && (rs.getString(1)!= x || rs.getString(2)!= y ));
 
         rs.deleteRow();
         rs.moveToCurrentRow();
     }
 
 
-    public List<Integer> getTree(int leafId) throws SQLException {
+    public List<String> getTree(String leafId) throws SQLException {
 
-        List<Integer> nodes = new LinkedList<>();
+        List<String> nodes = new LinkedList<>();
         Connection conn = DB_Connection.getConnection();
 
         String query = "WITH RECURSIVE CategoryTree AS ( SELECT id, catId, subId FROM category_hierarchy WHERE subId = ? UNION ALL SELECT h.id, h.catId, h.subId FROM category_hierarchy h JOIN CategoryTree tree ON h.subId = tree.catId) SELECT * FROM CategoryTree ORDER BY id ASC";
         PreparedStatement statement = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        statement.setString(1, String.valueOf(leafId));
+        statement.setString(1,(leafId));
 
         while(rs.next())
         {
-           nodes.add(rs.getInt(2));
+           nodes.add(rs.getString(2));
         }
 
         return nodes;
+    }
+
+    public HashMap<String,String> getAllParentChild() throws SQLException {
+
+        rs.absolute(0);
+
+        HashMap<String,String> relMap = new HashMap<>();  // Relation Map
+
+        while(rs.next())
+        {
+            relMap.put(rs.getString(3), rs.getString(2));
+
+        }
+
+        return relMap;
+
     }
 }
