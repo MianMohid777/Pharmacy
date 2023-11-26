@@ -1,7 +1,6 @@
-package Presentation;
+package Presentation.Controller;
 
 import Application.Model.Manager;
-import Application.Model.Role;
 import Application.Model.Sales_Assistant;
 import Application.Model.User;
 import Application.Service.Implementation.UserS_I;

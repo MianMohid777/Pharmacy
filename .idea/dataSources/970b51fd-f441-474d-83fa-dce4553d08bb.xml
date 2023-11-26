@@ -1016,8 +1016,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="295" parent="1" name="PharmacyPos">
-      <IntrospectionTimestamp>2023-11-24.22:37:16</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-11-24.12:37:16</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-11-26.14:55:34</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-11-26.04:55:34</LocalIntrospectionTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="296" parent="1" name="mysql.infoschema">
@@ -1072,7 +1072,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
     <column id="308" parent="300" name="stockId">
-      <AutoIncrement>8</AutoIncrement>
+      <AutoIncrement>22</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1110,7 +1110,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="316" parent="301" name="cid">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>6</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1154,28 +1154,28 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>code</UnderlyingIndexName>
     </key>
     <column id="326" parent="302" name="id">
-      <AutoIncrement>2</AutoIncrement>
+      <AutoIncrement>29</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="327" parent="302" name="catCode">
+    <column id="327" parent="302" name="parentCategory">
       <DasType>varchar(20)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="328" parent="302" name="subCatCode">
+    <column id="328" parent="302" name="subCategory">
       <DasType>varchar(20)|0s</DasType>
       <Position>3</Position>
     </column>
-    <foreign-key id="329" parent="302" name="category_hierarchy_categories_code_fk">
-      <ColNames>catCode</ColNames>
-      <RefColNames>code</RefColNames>
+    <foreign-key id="329" parent="302" name="category_hierarchy_categories_categoryName_fk">
+      <ColNames>parentCategory</ColNames>
+      <RefColNames>categoryName</RefColNames>
       <RefTableName>categories</RefTableName>
       <RefTableParentName>pharmacypos</RefTableParentName>
     </foreign-key>
-    <foreign-key id="330" parent="302" name="category_hierarchy_categories_code_fk2">
-      <ColNames>subCatCode</ColNames>
-      <RefColNames>code</RefColNames>
+    <foreign-key id="330" parent="302" name="category_hierarchy_categories_categoryName_fk2">
+      <ColNames>subCategory</ColNames>
+      <RefColNames>categoryName</RefColNames>
       <RefTableName>categories</RefTableName>
       <RefTableParentName>pharmacypos</RefTableParentName>
     </foreign-key>
@@ -1184,12 +1184,12 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="332" parent="302" name="category_hierarchy_categories_code_fk">
-      <ColNames>catCode</ColNames>
+    <index id="332" parent="302" name="category_hierarchy_categories_categoryName_fk">
+      <ColNames>parentCategory</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="333" parent="302" name="category_hierarchy_categories_code_fk2">
-      <ColNames>subCatCode</ColNames>
+    <index id="333" parent="302" name="category_hierarchy_categories_categoryName_fk2">
+      <ColNames>subCategory</ColNames>
       <Type>btree</Type>
     </index>
     <key id="334" parent="302" name="PRIMARY">
@@ -1225,8 +1225,6 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </foreign-key>
     <foreign-key id="340" parent="303" name="orderProd_product_code_fk">
       <ColNames>prodCode</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <OnUpdate>cascade</OnUpdate>
       <RefColNames>code</RefColNames>
       <RefTableName>product</RefTableName>
       <RefTableParentName>pharmacypos</RefTableParentName>
@@ -1259,7 +1257,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DasType>varchar(20)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="347" parent="304" name="user">
+    <column id="347" parent="304" name="userName">
       <DasType>varchar(20)|0s</DasType>
       <Position>3</Position>
     </column>
@@ -1286,7 +1284,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Predicate>`qtyPerPack` &gt; 0</Predicate>
     </check>
     <column id="353" parent="305" name="pid">
-      <AutoIncrement>2</AutoIncrement>
+      <AutoIncrement>7</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1346,7 +1344,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>code</UnderlyingIndexName>
     </key>
     <column id="367" parent="306" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>6</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>

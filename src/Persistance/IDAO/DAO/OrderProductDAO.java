@@ -27,7 +27,7 @@ public class OrderProductDAO implements OrderProduct_IDAO {
 
         rs.updateInt(2,oid);
         rs.updateString(3,code);
-        rs.updateInt(3,qty);
+        rs.updateInt(4,qty);
 
         rs.insertRow();
 

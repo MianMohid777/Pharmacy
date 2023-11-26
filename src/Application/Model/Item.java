@@ -13,6 +13,10 @@ public class Item {
         this.p = p;
     }
 
+    public Item() {
+
+    }
+
     public int getQtyOrdered() {
         return qtyOrdered;
     }
@@ -28,6 +32,10 @@ public class Item {
     public float totalPrice()
     {
         return qtyOrdered*p.getPrice();
+    }
+
+    public void setP(Product p) {
+        this.p = p;
     }
 }
 

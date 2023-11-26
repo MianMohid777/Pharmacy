@@ -5,27 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bae72e10-bba0-4449-8f97-979391ae4ca4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Application/Service/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/CategoryS_I.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Presentation/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Presentation/Controller/AssistantController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PharamacyPos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PharmacyPos.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Service/Implementation/ProductS_I.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/ProductS_I.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryHierDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryHierDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/OrderDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/OrderProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/OrderProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductCategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductCategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/OrderProduct_IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/OrderProduct_IDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductStock_IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductStock_IDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/CategoriesUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/CategoriesUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,47 +45,64 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/FullStackMohid/IdeaProjects/PharamacyPos/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/FullStackMohid/IdeaProjects/PharamacyPos/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "database.query.execution",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;MySQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/Persistance" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ManagerController">
+  <component name="RunManager" selected="Application.AssistantController">
+    <configuration name="AssistantController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Presentation.Controller.AssistantController" />
+      <module name="PharmacyPos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Presentation.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CategoriesUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Presentation.CategoriesUI" />
       <module name="PharmacyPos" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Presentation.*" />
+          <option name="PATTERN" value="Presentation.Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -104,11 +111,11 @@
       </method>
     </configuration>
     <configuration name="ManagerController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Presentation.ManagerController" />
+      <option name="MAIN_CLASS_NAME" value="Presentation.Controller.ManagerController" />
       <module name="PharmacyPos" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Presentation.*" />
+          <option name="PATTERN" value="Presentation.Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,26 +149,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Presentation.UserController" />
-      <module name="PharmacyPos" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Presentation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AssistantController" />
         <item itemvalue="Application.ManagerController" />
         <item itemvalue="Application.CategoriesUI" />
         <item itemvalue="Application.Product" />
         <item itemvalue="Application.ProductDAO" />
-        <item itemvalue="Application.UserController" />
       </list>
     </recent_temporary>
   </component>
@@ -178,7 +172,7 @@
       <workItem from="1700749109719" duration="12772000" />
       <workItem from="1700769011057" duration="2024000" />
       <workItem from="1700771452239" duration="475000" />
-      <workItem from="1700772008568" duration="30614000" />
+      <workItem from="1700772008568" duration="52516000" />
     </task>
     <servers />
   </component>

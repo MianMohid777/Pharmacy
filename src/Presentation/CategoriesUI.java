@@ -1,8 +1,11 @@
 package Presentation;
 
 import javax.swing.*;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,68 +13,145 @@ import java.util.Map;
 
 public class CategoriesUI extends JFrame {
 
-    public CategoriesUI() {
+    public CategoriesUI(Map<String, String> childParentMap) {
 
-        setTitle("Category Tree ");
-        setSize(400,400);
+        setTitle("Categories");
+        setSize(300,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Sample data
-        String[] data = {
-                "25,Di-178719197,Ga1475053137",
-                "26,Di-178719197,Ki-2047723204",
-                "27,Di-178719197,Ca-2076370661",
-                "28,Di-178719197,Bo64368143"
-        };
 
-        // Build a map to store nodes by id
-        Map<String, String> nodeMap = new HashMap<>();
+        Map<String, DefaultMutableTreeNode> nodeMap = new HashMap<>();
 
-        // Create the root node
+
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Categories");
-        nodeMap.put("Categories", "Root");
 
-        // Process the data and create nodes
-        for (String line : data) {
-            String[] parts = line.split(",");
-            String id = parts[0];
-            String parent = parts[1];
-            String child = parts[2];
 
-            // Create a new node
-            DefaultMutableTreeNode node = new DefaultMutableTreeNode(child);
+        for (Map.Entry<String, String> entry : childParentMap.entrySet())
+        {
+            String child = entry.getKey(); // Child
+            String parent = entry.getValue(); // Parent
 
-            // Add the node to the map
-            nodeMap.put(child, parent);
+            DefaultMutableTreeNode childNode = new DefaultMutableTreeNode(child); // Making a Child Node
 
-            if(nodeMap.containsKey(parent))
+            if(!nodeMap.containsKey(child))
             {
-                DefaultMutableTreeNode parentNode = new DefaultMutableTreeNode(parent);
-                root.add(parentNode);
-            }
-            else {
+                nodeMap.put(child,childNode);
 
-                DefaultMutableTreeNode parentNode = new DefaultMutableTreeNode(parent);
-                parentNode.add(node);
+                if(childParentMap.containsKey(parent) && !nodeMap.containsKey(parent) ) // Parent itself is a Child of a Grand-Parent
+                {
+                    while(childParentMap.containsKey(parent))
+                    {
+
+                        DefaultMutableTreeNode parentNode = new DefaultMutableTreeNode();
+
+                        if(nodeMap.containsKey(parent)) {
+                            parentNode = nodeMap.get(parent);
+                        }
+                        else
+                        {
+                             parentNode = new DefaultMutableTreeNode(parent);
+                        }
+
+                        parentNode.add(childNode);
+                        nodeMap.put(parent,parentNode);
+
+                        child = parent; // Parent becomes Child
+                        parent = childParentMap.get(child); // Grand Parents of Child
+
+                        if(!nodeMap.containsKey(child))
+                           childNode = new DefaultMutableTreeNode(child);
+                        else
+                        {
+                            childNode = nodeMap.get(child);
+                        }
+
+                        if(!childParentMap.containsKey(parent) )
+                        {
+                            if(nodeMap.containsKey(parent)) {
+                                parentNode = nodeMap.get(parent);
+                            }
+                            else
+                            {
+                                parentNode = new DefaultMutableTreeNode(parent);
+                            }
+                            parentNode.add(childNode);
+                            nodeMap.put(parent,parentNode);
+                            root.add(parentNode);
+                        }
+                    }
+                }
+                else if(nodeMap.containsKey(parent))
+                {
+                    DefaultMutableTreeNode parentNode = nodeMap.get(parent);
+                    parentNode.add(childNode);
+                }
+                else {
+                    DefaultMutableTreeNode parentNode = new DefaultMutableTreeNode();
+
+                    if(nodeMap.containsKey(parent)) {
+                        parentNode = nodeMap.get(parent);
+                    }
+                    else {
+                        parentNode = new DefaultMutableTreeNode(parent);
+                    }
+                    parentNode.add(childNode);
+                    nodeMap.put(parent,parentNode);
+                    root.add(parentNode);
+                }
             }
+
+
         }
 
-        // Create the tree model with the root node
+
         DefaultTreeModel treeModel = new DefaultTreeModel(root);
 
-        // Create the JTree with the tree model
+
         JTree tree = new JTree(treeModel);
 
-        // Add the JTree to a JScrollPane and add it to the frame
+        tree.addTreeSelectionListener(new TreeSelectionListener() {
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+
+                if (selectedNode != null) {
+
+                    TreePath path = new TreePath(selectedNode.getPath());
+                    System.out.println("Selected Node Path: " + path);
+            }
+        }});
+
+
         JScrollPane scrollPane = new JScrollPane(tree);
         add(scrollPane, BorderLayout.CENTER);
 
-
         setVisible(true);
     }
-    public static void main(String[]args)
-    {
-        CategoriesUI ui = new CategoriesUI();
+
+
+
+
+    public static void main(String[] args) {
+        // Example child-parent map
+        Map<String, String> childParentMap = new HashMap<>();
+        childParentMap.put("Accessories", "Mobile");
+        childParentMap.put("Mobile", "Electronics");
+        childParentMap.put("Tv", "Electronics");
+        childParentMap.put("Smartphone", "Mobile");
+        childParentMap.put("Laptop", "Electronics");
+        childParentMap.put("Dell", "Laptop");
+        childParentMap.put("Tablet", "Mobile");
+        childParentMap.put("Samsung", "Tablet");
+        childParentMap.put("Sony", "Tv");
+        childParentMap.put("Camera", "Electronics");
+        childParentMap.put("Nikon", "Camera");
+        childParentMap.put("Canon", "Camera");
+        childParentMap.put("Refrigerator", "Appliances");
+        childParentMap.put("WashingMachine", "Appliances");
+
+
+        SwingUtilities.invokeLater(() -> new  CategoriesUI(childParentMap));
     }
 }
+

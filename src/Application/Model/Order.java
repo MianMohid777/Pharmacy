@@ -41,18 +41,22 @@ public class Order extends ItemContainer{
     {
         Set<String> keys = super.getItemMap().keySet();
 
-        totalPrice = 0.0F;
+        totalPrice = super.total();
 
-        System.out.println("Item \t" + "Qty \t" + "Price \t" + "Total Price " );
+        System.out.println("Receipt Id: " + id );
+        System.out.println("User: " + name );
+        System.out.println("Customer Name: " + customerName );
+        System.out.println("Order DateTime: " + timeStamp );
+
+        System.out.println("\n Item     \t" + "Qty     \t" + "Price     \t" + "Total Price  " );
         for(String s: keys)
         {
             Item i = super.getItemMap().get(s);
 
-            System.out.println(s + "\t" + i.getQtyOrdered() + "\t" + i.getP().getPrice() + "\t" + i.totalPrice());
-            totalPrice += i.totalPrice();
+            System.out.println(s + " \t     " + i.getQtyOrdered() + "     \t" + i.getP().getPrice() + "     \t" + i.totalPrice());
         }
 
-        System.out.println(" \t\t Grand Total : \t" +totalPrice);
+        System.out.println(" \n\t\t   Grand Total : \t" +totalPrice);
     }
 
     public String getCustomerName() {

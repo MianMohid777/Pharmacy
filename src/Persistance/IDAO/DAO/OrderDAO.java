@@ -4,10 +4,7 @@ import Application.Model.*;
 import Persistance.Connection.DB_Connection;
 import Persistance.IDAO.Interface.IDAO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
@@ -29,16 +26,21 @@ public class OrderDAO implements IDAO<Order> {
     @Override
     public void save(Order o) throws SQLException {
 
-        rs.moveToInsertRow();
+        Connection conn = DB_Connection.getConnection();
+        String query = "INSERT INTO orders(customerName, userName, time, total) VALUES (?,?,?,?)";
+        PreparedStatement statement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1,o.getCustomerName());
+        statement.setString(2,o.getName());
+        statement.setString(3,String.valueOf(o.getTimeStamp()));
+        statement.setFloat(4,o.getTotalPriceFromContainer());
+        statement.executeUpdate();
 
-        rs.updateString(2,o.getCustomerName());
-        rs.updateString(3,o.getName());
-        rs.updateString(4,String.valueOf(o.getTimeStamp()));
-        rs.updateFloat(5,o.getTotalPriceFromContainer());
+        ResultSet keys = statement.getGeneratedKeys();
 
-        rs.insertRow();
-
-        rs.moveToCurrentRow();
+        if(keys.next())
+        {
+            o.setId(keys.getInt(1));
+        }
 
     }
 

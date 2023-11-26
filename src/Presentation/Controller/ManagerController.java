@@ -1,4 +1,4 @@
-package Presentation;
+package Presentation.Controller;
 
 import Application.Model.Category;
 import Application.Model.Product;
@@ -8,10 +8,7 @@ import Application.Service.Implementation.ProductS_I;
 import Application.Service.ProductService;
 
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
 
 public class ManagerController {
@@ -23,7 +20,7 @@ public class ManagerController {
 
     private HashMap<String,Category> categoryMap;
 
-    private HashMap<String,String> parentChildCMap;
+    private HashMap<String,String> parentChildCMap;  // Child <-> Parent //
 
 
     public ManagerController() throws SQLException {
@@ -44,15 +41,14 @@ public class ManagerController {
 
         for(Category c : categoryList)
         {
-            categoryMap.put(c.findCode(),c);
+            categoryMap.put(c.getName(),c);
         }
 
         parentChildCMap = categoryService.getParentChild();
     }
 
 
-
-    public Boolean addProduct(String name,String desc, Integer qtyPerPack, Float price, String categoryCode) throws SQLException {
+    public Boolean addProduct(String name,String desc, Integer qtyPerPack, Float price,String hierarchy, String categoryName) throws SQLException {
         Product p = new Product();
         p.setName(name.toUpperCase());
         p.setDesc(desc);
@@ -60,17 +56,56 @@ public class ManagerController {
         p.findCode();
         p.setStockQty(0);
         p.setPackQty(0);
-        p.setCategoryHierarchy("");
+        p.setCategoryHierarchy(hierarchy);
 
         p.setQtyPerPack(qtyPerPack);
-        if(!productMap.containsKey(p.getCode()) && categoryMap.containsKey(categoryCode))
+        if(!productMap.containsKey(p.getCode()) && categoryMap.containsKey(categoryName))
         {
            productMap.put(p.getCode(),p);
            productService.add(p);
 
-           linkProd_Category(categoryCode,p);
+           linkProd_Category(categoryName,p);
 
            return true;
+        }
+
+        return false;
+    }
+
+
+    public Boolean updateProduct(String name,String code,String desc, Integer qtyPerPack, Float price,String hierarchy) throws SQLException {
+        Product p = productMap.get(code);
+
+        p.setName(name.toUpperCase());
+        p.setDesc(desc);
+        p.setPrice(price);
+        p.setStockQty(0);
+        p.setPackQty(0);
+        p.setCategoryHierarchy(hierarchy);
+        p.setQtyPerPack(qtyPerPack);
+
+        if(productMap.containsKey(p.getCode()))
+        {
+            productMap.put(p.getCode(),p);
+            productService.update(p);
+
+            return true;
+        }
+
+        return false;
+    }
+
+
+    public Boolean removeProduct(String code) throws SQLException {
+
+        if(productMap.containsKey(code))
+        {
+            productService.delete(code);
+            productMap.remove(code);
+
+            System.out.println("Product Deleted Successfully");
+
+            return true;
         }
 
         return false;
@@ -121,35 +156,6 @@ public class ManagerController {
         return false;
     }
 
-    public Boolean sellStock(String code, Integer qty) throws SQLException {
-
-        if(productMap.containsKey(code))
-        {
-            Product p = productMap.get(code);
-
-            if(p.getStockQty() > qty) // Supply > Demand
-            {
-                int newStockQty = p.getStockQty() - qty;
-                int packReduce = newStockQty / p.getQtyPerPack();
-
-                if(packReduce != p.getPackQty())
-                {
-                    int reducedNum = p.getPackQty() - packReduce;
-                    productService.reduceStock(code,reducedNum);
-
-                    System.out.println("Supplied " + qty + " Stock and Reduced the Packs by a Figure of " + reducedNum);
-
-                }
-                p.setPackQty(packReduce);
-                p.setStockQty(newStockQty);
-                productService.update(p);
-
-                return true;
-            }
-        }
-        return false;
-    }
-
 
     public Boolean addCategory(String name,String desc) throws SQLException {
         Category c = new Category();
@@ -158,9 +164,9 @@ public class ManagerController {
         c.setDesc(desc);
 
 
-        if(!categoryMap.containsKey(c.getCode()))
+        if(!categoryMap.containsKey(c.getName()))
         {
-            categoryMap.put(c.getCode(),c);
+            categoryMap.put(c.getName(),c);
             categoryService.add(c);
 
             return true;
@@ -235,6 +241,16 @@ public class ManagerController {
     {
         return p.getCode();
     }
+
+    String checkCategoryName(String code) throws SQLException {
+
+       return categoryService.findByCode(code).getName();
+    }
+
+    Category categorySearchByCode(String code) throws SQLException {
+        return categoryService.findByCode(code);
+    }
+
     public static void main(String[] args) throws SQLException {
         ManagerController controller = new ManagerController();
 
@@ -246,27 +262,26 @@ public class ManagerController {
 
         else {
 
-            if (controller.addProduct("Entox", "Testing", 10, 5F,"Bo64368143"))
+            if (controller.addProduct("Entox", "Testing", 10, 5F,"","Bo64368143"))
                 System.out.println("Product Added Successfully");
 
-            if (controller.addProduct("panadolcf", "Testing", 8, 8F,"Ki-2047723204"))
+            if (controller.addProduct("panadolcf", "Testing", 8, 8F,"","Ki-2047723204"))
                 System.out.println("Product Added Successfully");
 
-            //LocalDate exp = LocalDate.of(2023, 12, 25);
+            if (controller.updateProduct("panadolcf","PA8Med1183019104", "Testing", 8, 9F,""))
+                System.out.println("Product Updated Successfully");
 
-            //if (controller.addStock("TE35Med2571410", 20, exp))
-                //System.out.println("Stock Added Successfully");
-            //controller.sellStock("TE35Med2571410",60);
 
-            /*controller.addCategory("Diabetes", "Diabetic Medicines");
+
+            controller.addCategory("Diabetes", "Diabetic Medicines");
             controller.addCategory("Gastric","Stomach Medicines");
             controller.addCategory("Kidney","Excretory Medicines");
             controller.addCategory("Cardiac","Cardiac Medicines");
             controller.addCategory("Bones" ,"Supplements Medicines");
 
-            controller.addSubCategory("Di-178719197","Ga1475053137");
-            controller.addSubCategory("Di-178719197","Ki-2047723204");
-            controller.addSubCategory("Di-178719197","Bo64368143");*/
+            controller.addSubCategory("Diabetes","Kidney");
+            controller.addSubCategory("Cardiac","Kidney");
+            controller.addSubCategory("Gastric","Bones");
 
 
             for(String s:controller.giveSearchResult("Panadolcf"))
@@ -285,6 +300,15 @@ public class ManagerController {
 
             System.out.println("Code for searched product is = "+ controller.checkCodeProd(p));
 
+            Set<String> keys = controller.parentChildCMap.keySet();
+
+            for(String s : keys)
+            {
+                String value = controller.parentChildCMap.get(s);
+                System.out.println("Category: " + s + " has Parent Category = " + value);
+            }
+
+            controller.removeProduct("PPA20Med-79215811");
         }
 
     }
