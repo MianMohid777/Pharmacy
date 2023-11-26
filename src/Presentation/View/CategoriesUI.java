@@ -1,5 +1,8 @@
 package Presentation.View;
 
+import Presentation.Controller.Main.PharmacyController;
+import Presentation.Controller.Supporting.UserController;
+
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -13,8 +16,9 @@ import java.util.Map;
 
 public class CategoriesUI extends JFrame {
 
-    public CategoriesUI(Map<String, String> childParentMap) {
+    public CategoriesUI(PharmacyController controller) {
 
+        JOptionPane.showMessageDialog(null, UserController.getU().getName());
         setTitle("Categories");
         setSize(300,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,6 +27,7 @@ public class CategoriesUI extends JFrame {
 
         Map<String, DefaultMutableTreeNode> nodeMap = new HashMap<>();
 
+        HashMap<String,String> childParentMap = PharmacyController.managerController.getParentChildCMap();
 
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Categories");
 
@@ -151,7 +156,6 @@ public class CategoriesUI extends JFrame {
         childParentMap.put("WashingMachine", "Appliances");
 
 
-        SwingUtilities.invokeLater(() -> new  CategoriesUI(childParentMap));
     }
 }
 

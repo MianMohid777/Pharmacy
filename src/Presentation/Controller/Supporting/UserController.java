@@ -1,4 +1,4 @@
-package Presentation.Controller;
+package Presentation.Controller.Supporting;
 
 import Application.Model.Manager;
 import Application.Model.Sales_Assistant;
@@ -9,6 +9,7 @@ import Application.Service.UserService;
 import java.sql.SQLException;
 
 public class UserController {
+
 
     private UserService userService;
     private static User u;
@@ -24,7 +25,7 @@ public class UserController {
             return false;
         else
         {
-            if(u.getUserName().equals(userName) && u.getPassWord().equals(password))
+            if(u.getUserName().equalsIgnoreCase(userName) && u.getPassWord().equals(password))
             {
                 u.getRole().permissions();
                 return true;
@@ -66,6 +67,14 @@ public class UserController {
     {
         u.getRole().permissions();
         u = null;
+    }
+
+    public static User getU() {
+        return u;
+    }
+
+    public static void setU(User u) {
+        UserController.u = u;
     }
 
     public static void main(String[] args) throws SQLException {

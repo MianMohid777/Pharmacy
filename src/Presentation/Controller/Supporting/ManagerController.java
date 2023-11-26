@@ -1,4 +1,4 @@
-package Presentation.Controller;
+package Presentation.Controller.Supporting;
 
 import Application.Model.*;
 import Application.Service.CategoryService;
@@ -8,7 +8,6 @@ import Application.Service.Implementation.ProductS_I;
 import Application.Service.OrderService;
 import Application.Service.ProductService;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -304,10 +303,10 @@ public class ManagerController {
 
             report = new MonthlyReport();
         }
-        Set<String> keys = categoryMap.keySet();
+
 
         List<Order> orders = orderService.getOrderByDay(start,end);
-        List<String> productsName = new LinkedList<>();
+
 
         int first = orders.get(0).getId();
         int last = orders.get(orders.size()-1).getId();
@@ -358,6 +357,14 @@ public class ManagerController {
        }
     }
 
+
+    public HashMap<String, String> getParentChildCMap() {
+        return parentChildCMap;
+    }
+
+    public void setParentChildCMap(HashMap<String, String> parentChildCMap) {
+        this.parentChildCMap = parentChildCMap;
+    }
 
     public static void main(String[] args) throws SQLException {
         ManagerController controller = new ManagerController();
@@ -421,7 +428,7 @@ public class ManagerController {
             //LocalDate date = LocalDate.of(2023,11,28);
             //controller.addStock("EN5Med66129908",20,date);
 
-            controller.SalesReport("weekly");
+            controller.SalesReport("monthly");
         }
 
 
