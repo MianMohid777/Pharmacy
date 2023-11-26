@@ -1,4 +1,4 @@
-package Presentation;
+package Presentation.View;
 
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;

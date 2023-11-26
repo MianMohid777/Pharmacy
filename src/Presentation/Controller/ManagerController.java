@@ -1,14 +1,18 @@
 package Presentation.Controller;
 
-import Application.Model.Category;
-import Application.Model.Product;
+import Application.Model.*;
 import Application.Service.CategoryService;
 import Application.Service.Implementation.CategoryS_I;
+import Application.Service.Implementation.OrderS_I;
 import Application.Service.Implementation.ProductS_I;
+import Application.Service.OrderService;
 import Application.Service.ProductService;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class ManagerController {
@@ -16,7 +20,10 @@ public class ManagerController {
     private ProductService productService;
     private CategoryService categoryService;
 
+    private OrderService orderService;
+
     private HashMap<String,Product> productMap;
+    private HashMap<String,String> productHierarchyMap;
 
     private HashMap<String,Category> categoryMap;
 
@@ -26,6 +33,7 @@ public class ManagerController {
     public ManagerController() throws SQLException {
         productService = new ProductS_I();
         categoryService = new CategoryS_I();
+        orderService = new OrderS_I();
 
         List<Product> productList = productService.getAllProducts();
         List<Category> categoryList = categoryService.getAllCategories();
@@ -45,6 +53,16 @@ public class ManagerController {
         }
 
         parentChildCMap = categoryService.getParentChild();
+        productHierarchyMap = productService.findAllProductHierarchy();
+
+        Set<String> keys = productHierarchyMap.keySet();
+
+        for(String key : keys) {
+            if (productMap.containsKey(key)) {
+                Product p = productMap.get(key);
+                p.setCategoryHierarchy(productHierarchyMap.get(key));
+            }
+        }
     }
 
 
@@ -224,7 +242,6 @@ public class ManagerController {
     }
 
 
-
     List<String> giveSearchResult(String search) throws SQLException {
         return productService.searchProduct(search);
     }
@@ -251,6 +268,97 @@ public class ManagerController {
         return categoryService.findByCode(code);
     }
 
+
+    ///////////////////////-------REPORT----////////////////////////////////
+
+
+    public void SalesReport(String type) throws SQLException {
+
+        LocalDateTime start = LocalDateTime.now();
+        LocalDateTime end = LocalDateTime.now();
+
+        SalesReport report = null;
+
+        if(type.equalsIgnoreCase("DAILY"))
+        {
+            start = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0).withNano(0);
+            start = start.minusDays(1);
+            report = new DailyReport();
+
+        }
+        else if(type.equalsIgnoreCase("WEEKLY"))
+        {
+            start = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0).withNano(0);
+            DayOfWeek dayOfWeek = start.getDayOfWeek();
+            int currDay = dayOfWeek.getValue();
+
+            start = start.minusDays(currDay+1);
+
+            report = new WeeklyReport();
+        }
+        else if(type.equalsIgnoreCase("MONTHLY"))
+        {
+            start = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0).withNano(0);
+            int currDayM = start.getDayOfMonth();
+            start = start.minusDays(currDayM+1);
+
+            report = new MonthlyReport();
+        }
+        Set<String> keys = categoryMap.keySet();
+
+        List<Order> orders = orderService.getOrderByDay(start,end);
+        List<String> productsName = new LinkedList<>();
+
+        int first = orders.get(0).getId();
+        int last = orders.get(orders.size()-1).getId();
+
+        List<String> prodCodes = orderService.getProductsInPeriod(first,last);
+
+        HashMap<String,Vector<Object>> categoryStats = new HashMap<>();
+
+        for(String s : prodCodes)
+        {
+            Vector<Object> stats = new Vector<>();
+
+            Product p = productMap.get(s);
+
+            int qtySold = orderService.getSalesQty(first,last,s);
+
+            String[] hierarchy = p.getCategoryHierarchy().split("/");
+            String leafCategory = hierarchy[hierarchy.length-1];
+
+
+            if(!categoryStats.containsKey(leafCategory))
+            {
+                stats.add(p);
+                stats.add(qtySold);
+                categoryStats.put(leafCategory,stats);
+
+            }
+            else
+            {
+                stats = categoryStats.get(leafCategory);
+                stats.add(p);
+                stats.add(qtySold);
+            }
+
+        }
+
+        Float totalSales = orderService.getTotalByDate(start,end);
+
+        Vector<Object> total = new Vector<>();
+        total.add(totalSales);
+        categoryStats.put("TOTAL",total);
+
+       if(report != null)
+       {
+           report.assignData(categoryStats);
+
+           report.createSalesReport();
+       }
+    }
+
+
     public static void main(String[] args) throws SQLException {
         ManagerController controller = new ManagerController();
 
@@ -262,7 +370,7 @@ public class ManagerController {
 
         else {
 
-            if (controller.addProduct("Entox", "Testing", 10, 5F,"","Bo64368143"))
+           /* if (controller.addProduct("Entox", "Testing", 10, 5F,"","Bo64368143"))
                 System.out.println("Product Added Successfully");
 
             if (controller.addProduct("panadolcf", "Testing", 8, 8F,"","Ki-2047723204"))
@@ -281,10 +389,10 @@ public class ManagerController {
 
             controller.addSubCategory("Diabetes","Kidney");
             controller.addSubCategory("Cardiac","Kidney");
-            controller.addSubCategory("Gastric","Bones");
+            controller.addSubCategory("Gastric","Bones");*/
 
 
-            for(String s:controller.giveSearchResult("Panadolcf"))
+           /* for(String s:controller.giveSearchResult("Panadolcf"))
             {
                 System.out.println(s);
 
@@ -292,9 +400,9 @@ public class ManagerController {
 
                 System.out.println(p.getName() + " has code " + p.getCode() + " with price " + p.getPrice() );
 
-            }
+            }*/
 
-            Product p = controller.codeSearch("EN5Med66129908");
+            /*Product p = controller.codeSearch("EN5Med66129908");
 
             System.out.println(p.getName() + " has code " + p.getCode() + " with price " + p.getPrice() );
 
@@ -307,9 +415,15 @@ public class ManagerController {
                 String value = controller.parentChildCMap.get(s);
                 System.out.println("Category: " + s + " has Parent Category = " + value);
             }
+*/
+            //controller.removeProduct("PPA20Med-79215811");
 
-            controller.removeProduct("PPA20Med-79215811");
+            //LocalDate date = LocalDate.of(2023,11,28);
+            //controller.addStock("EN5Med66129908",20,date);
+
+            controller.SalesReport("weekly");
         }
+
 
     }
 }

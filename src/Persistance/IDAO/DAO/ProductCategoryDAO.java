@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.*;
 
 public class ProductCategoryDAO implements Intermediate_IDAO {
 
@@ -40,5 +41,46 @@ public class ProductCategoryDAO implements Intermediate_IDAO {
 
         rs.deleteRow();
         rs.moveToCurrentRow();
+    }
+
+    // { Prescription Medications/Antibiotics/Penicillin } //
+
+    public List<String> findProductInCategory(String name) throws SQLException {
+        Connection conn = DB_Connection.getConnection();
+        String query = "SELECT * FROM product_category WHERE hierarchy REGEXP ? ";
+        PreparedStatement statement = conn.prepareStatement(query);
+        String regexPattern = "\\b" + name + "\\b";
+
+        statement.setString(1,regexPattern);
+        ResultSet set = statement.executeQuery();
+
+        List<String> codes = new LinkedList<>();
+
+        while(set.next())
+        {
+             codes.add(set.getString(2));
+
+        }
+
+        return codes;
+    }
+
+    public HashMap<String,String> findAllProductCategories() throws SQLException {
+        rs.absolute(0);
+
+        HashMap<String,String> hierarchyMap = new HashMap<>();
+        while(rs.next())
+        {
+            hierarchyMap.put(rs.getString(2),rs.getString(3));
+        }
+
+        return hierarchyMap;
+    }
+    public static void main(String[] args) throws SQLException {
+        ProductCategoryDAO dao=new ProductCategoryDAO();
+
+        for(String s:dao.findProductInCategory("Antibiotics") )
+             System.out.println(s);
+
     }
 }

@@ -10,7 +10,7 @@ public interface OrderProduct_IDAO {
 
     void save(int oid,String code,int qty) throws SQLException;
 
-    HashMap<Integer,String> getAllProductsByOrderId(int oid) throws SQLException;
+    List<String>  getAllProductsByOrderId(int oid) throws SQLException;
 
 
 }

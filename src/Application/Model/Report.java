@@ -1,16 +1,21 @@
 package Application.Model;
 
+import java.util.HashMap;
+import java.util.Vector;
+
 public abstract class Report {
 
-    protected String contents;
+    protected HashMap<String, Vector<Object>> reportData;
+
 
     abstract public void display();
 
-    public String getContents() {
-        return contents;
+
+    public HashMap<String, Vector<Object>> getReportData() {
+        return reportData;
     }
 
-    public void setContents(String contents) {
-        this.contents = contents;
+    public void setReportData(HashMap<String, Vector<Object>> reportData) {
+        this.reportData = reportData;
     }
 }

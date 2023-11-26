@@ -1016,8 +1016,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="295" parent="1" name="PharmacyPos">
-      <IntrospectionTimestamp>2023-11-26.14:55:34</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-11-26.04:55:34</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-11-26.16:14:34</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-11-26.06:14:34</LocalIntrospectionTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="296" parent="1" name="mysql.infoschema">
@@ -1354,7 +1354,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>2</Position>
     </column>
     <column id="369" parent="306" name="hierarchy">
-      <DasType>varchar(20)|0s</DasType>
+      <DasType>varchar(500)|0s</DasType>
       <Position>3</Position>
     </column>
     <foreign-key id="370" parent="306" name="product_category_product_code_fk">

@@ -197,8 +197,8 @@ public class AssistantController {
     public static void main (String[] args) throws SQLException {
         AssistantController controller = new AssistantController();
 
-        controller.addToCart("PA8Med1183019104", 5);
-        controller.addToCart("PA20Med-79215811", 60);
+        controller.addToCart("TE35Med2571410", 5);
+        controller.addToCart("EN5Med66129908", 10);
 
         //controller.updateCart("PA8Med1183019104", 10);
 

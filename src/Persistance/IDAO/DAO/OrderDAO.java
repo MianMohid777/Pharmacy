@@ -5,6 +5,7 @@ import Persistance.Connection.DB_Connection;
 import Persistance.IDAO.Interface.IDAO;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
@@ -118,5 +119,52 @@ public class OrderDAO implements IDAO<Order> {
         }
         return new Order();
     }
+
+    public List<Order> findByDate(LocalDateTime startDate,LocalDateTime endDate) throws SQLException {
+        Connection conn = DB_Connection.getConnection();
+        String query = "SELECT * FROM orders WHERE time BETWEEN ? AND ?";
+        PreparedStatement statement = conn.prepareStatement(query);
+        statement.setTimestamp(1, Timestamp.valueOf(startDate));
+        statement.setTimestamp(2, Timestamp.valueOf(endDate));
+
+        ResultSet set = statement.executeQuery();
+        List<Order> orderList = new LinkedList<>();
+
+        while(set.next())
+        {
+            Order o = new Order();
+
+            o.setId(set.getInt(1));
+            o.setName(set.getString(2));
+            o.setCustomerName(set.getString(3));
+            o.setTimeStamp((LocalDateTime) set.getObject(4));
+            o.setTotalPrice(set.getFloat(5));
+
+            orderList.add(o);
+
+        }
+
+        return orderList;
+    }
+
+    public Float findByTotalByDate(LocalDateTime startDate,LocalDateTime endDate) throws SQLException {
+        Connection conn = DB_Connection.getConnection();
+        String query = "SELECT SUM(total) FROM orders WHERE time BETWEEN ? AND ?";
+        PreparedStatement statement = conn.prepareStatement(query);
+        statement.setTimestamp(1, Timestamp.valueOf(startDate));
+        statement.setTimestamp(2, Timestamp.valueOf(endDate));
+
+        ResultSet set = statement.executeQuery();
+
+
+        if(set.next())
+        {
+           return set.getFloat(1);
+
+        }
+
+        return null;
+    }
+
 
 }

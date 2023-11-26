@@ -105,4 +105,14 @@ public class ProductS_I implements ProductService {
     public Integer findStockQty(Integer id, String code) throws SQLException {
         return productStockRepo.findStock(id,code);
     }
+
+    @Override
+    public List<String> getProductsByCategory(String name) throws SQLException {
+        return productCategoryRepo.findProductInCategory(name);
+    }
+
+    @Override
+    public HashMap<String, String> findAllProductHierarchy() throws SQLException {
+        return productCategoryRepo.findAllProductCategories();
+    }
 }

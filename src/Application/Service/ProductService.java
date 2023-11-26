@@ -36,4 +36,8 @@ public interface ProductService {
    Integer deleteStock(Integer id) throws SQLException;
    Integer findStockQty(Integer id, String code) throws SQLException;
 
+   List<String> getProductsByCategory(String name) throws SQLException;;
+
+   HashMap<String,String> findAllProductHierarchy() throws SQLException;
+
 }
