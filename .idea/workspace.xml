@@ -5,11 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bae72e10-bba0-4449-8f97-979391ae4ca4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Presentation/View/CatalogUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Presentation/View/CatalogUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/Controller/AssistantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Controller/Supporting/AssistantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/Controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Controller/Supporting/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Controller/Supporting/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/View/CategoriesUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/View/CategoriesUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Service/Implementation/ProductS_I.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/ProductS_I.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductCategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductCategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductStock_IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductStock_IDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/Controller/Supporting/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Controller/Supporting/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/View/CategoriesUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/CategoriesUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/View/CategoriesUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CategoriesUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/View/LogInUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/View/LogInUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,57 +50,59 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/FullStackMohid/IdeaProjects/PharamacyPos/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "database.query.execution",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/FullStackMohid/IdeaProjects/PharamacyPos/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/Persistance" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/Presentation/View" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Application.Model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LogInUI">
-    <configuration name="AssistantController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Presentation.Controller.Supporting.AssistantController" />
+  <component name="RunManager" selected="Application.CatalogUI">
+    <configuration name="CatalogUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Presentation.View.CatalogUI" />
       <module name="PharmacyPos" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Presentation.Controller.Supporting.*" />
+          <option name="PATTERN" value="Presentation.View.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,6 +112,19 @@
     </configuration>
     <configuration name="LogInUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Presentation.View.LogInUI" />
+      <module name="PharmacyPos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Presentation.View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManageProductUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Presentation.View.ManageProductUI" />
       <module name="PharmacyPos" />
       <extension name="coverage">
         <pattern>
@@ -136,26 +162,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductCategoryDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Persistance.IDAO.DAO.ProductCategoryDAO" />
-      <module name="PharmacyPos" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Persistance.IDAO.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CatalogUI" />
         <item itemvalue="Application.LogInUI" />
+        <item itemvalue="Application.ManageProductUI" />
         <item itemvalue="Application.ManagerController" />
         <item itemvalue="Application.OrderS_I" />
-        <item itemvalue="Application.AssistantController" />
-        <item itemvalue="Application.ProductCategoryDAO" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +185,10 @@
       <workItem from="1700749109719" duration="12772000" />
       <workItem from="1700769011057" duration="2024000" />
       <workItem from="1700771452239" duration="475000" />
-      <workItem from="1700772008568" duration="77555000" />
+      <workItem from="1700772008568" duration="77979000" />
+      <workItem from="1701070092779" duration="3943000" />
+      <workItem from="1701093238977" duration="16844000" />
+      <workItem from="1701191656416" duration="550000" />
     </task>
     <servers />
   </component>

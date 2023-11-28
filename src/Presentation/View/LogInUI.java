@@ -92,7 +92,8 @@ public class LogInUI extends JFrame {
                             {
                                 JOptionPane.showMessageDialog(null,"Manager: " + UserController.getU().getName()+ " Logged In");
                                 PharmacyController.managerController = new ManagerController();
-                                CategoriesUI cUi = new CategoriesUI(control);
+                                CatalogUI cUi = new CatalogUI(control);
+                                cUi.setVisible(true);
                                 dispose();
                             }
                             else {

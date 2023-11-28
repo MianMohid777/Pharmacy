@@ -43,15 +43,21 @@ public class ManagerController {
 
         for(Product p: productList)
         {
-            productMap.put(p.findCode(),p);
+            productMap.put(p.getCode(),p);
         }
+        parentChildCMap = categoryService.getParentChild();
 
         for(Category c : categoryList)
         {
             categoryMap.put(c.getName(),c);
+
+            if(!parentChildCMap.containsKey(c.getName()) && !parentChildCMap.containsValue(c.getName()))
+            {
+                parentChildCMap.put(c.getName(),"NULL");
+            }
         }
 
-        parentChildCMap = categoryService.getParentChild();
+
         productHierarchyMap = productService.findAllProductHierarchy();
 
         Set<String> keys = productHierarchyMap.keySet();
@@ -146,7 +152,7 @@ public class ManagerController {
         return false;
     }
 
-    public Boolean clearExpireStock() throws SQLException {
+    public Boolean clearExpireStock() throws SQLException{
 
         HashMap<Integer,String> expireMap = productService.clearExpiredStock();
 
@@ -192,6 +198,38 @@ public class ManagerController {
         return false;
     }
 
+    public Boolean updateCategory(String name,String desc,String code) throws SQLException {
+        Category c = new Category();
+        c.setName(name);
+        c.setCode(code);
+        c.setDesc(desc);
+
+
+        if(categoryMap.containsKey(c.getName()))
+        {
+            categoryMap.put(c.getName(),c);
+            categoryService.update(c);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public Boolean updateHierarchy(String category,String newRegex) throws SQLException {
+        List<String> code = productService.getProductsByCategory(category);
+
+        for(String codes : code)
+        {
+            Product p = productMap.get(codes);
+            String curr = p.getCategoryHierarchy();
+            curr = curr.replaceAll(category,newRegex);
+            p.setCategoryHierarchy(curr);
+
+            productService.updateHierarchy(codes,curr);
+        }
+        return true;
+    }
     public Boolean addSubCategory(String parent,String child) throws SQLException {
 
 
@@ -360,6 +398,30 @@ public class ManagerController {
 
     public HashMap<String, String> getParentChildCMap() {
         return parentChildCMap;
+    }
+
+    public HashMap<String, Product> getProductMap() {
+        return productMap;
+    }
+
+    public void setProductMap(HashMap<String, Product> productMap) {
+        this.productMap = productMap;
+    }
+
+    public HashMap<String, String> getProductHierarchyMap() {
+        return productHierarchyMap;
+    }
+
+    public void setProductHierarchyMap(HashMap<String, String> productHierarchyMap) {
+        this.productHierarchyMap = productHierarchyMap;
+    }
+
+    public HashMap<String, Category> getCategoryMap() {
+        return categoryMap;
+    }
+
+    public void setCategoryMap(HashMap<String, Category> categoryMap) {
+        this.categoryMap = categoryMap;
     }
 
     public void setParentChildCMap(HashMap<String, String> parentChildCMap) {

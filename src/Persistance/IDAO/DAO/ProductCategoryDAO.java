@@ -37,12 +37,22 @@ public class ProductCategoryDAO implements Intermediate_IDAO {
 
         rs.absolute(0);
 
-        while(rs.next() && (rs.getInt(1)!= (Integer)x || rs.getInt(2)!= (Integer)y ));
+        while(rs.next() && (rs.getInt(2)!= (Integer)x || rs.getInt(3)!= (Integer)y ));
 
         rs.deleteRow();
         rs.moveToCurrentRow();
     }
 
+    public void update(Object x,Object y) throws SQLException {
+
+        Connection conn = DB_Connection.getConnection();
+        String query = "UPDATE product_category SET product_category.hierarchy = ? WHERE prodCode = ?";
+        PreparedStatement statement = conn.prepareStatement(query);
+        statement.setString(1,String.valueOf(y));
+        statement.setString(2,String.valueOf(x));
+
+        statement.executeUpdate();
+    }
     // { Prescription Medications/Antibiotics/Penicillin } //
 
     public List<String> findProductInCategory(String name) throws SQLException {

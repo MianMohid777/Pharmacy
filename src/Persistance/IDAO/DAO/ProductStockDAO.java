@@ -138,4 +138,32 @@ public class ProductStockDAO implements ProductStock_IDAO {
 
         return (set.next() ? set.getInt(3):null);
     }
+
+    @Override
+    public List<Vector<Object>> findStockByProduct(String code) throws SQLException
+    {
+
+        Connection conn = DB_Connection.getConnection();
+
+        String query = "SELECT * FROM ProductStock WHERE  prodCode = ?";
+        PreparedStatement statement = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_INSENSITIVE);
+        statement.setString(1,code);
+        ResultSet set = statement.executeQuery();
+
+        List<Vector<Object>> stocks = new LinkedList<>();
+
+        while(set.next())
+        {
+            Vector<Object>  rowDate = new Vector<>();
+
+            rowDate.add(set.getInt(1));
+            rowDate.add(set.getString(2));
+            rowDate.add(set.getInt(3));
+            rowDate.add(set.getDate(4));
+
+            stocks.add(rowDate);
+        }
+
+        return stocks;
+    }
 }

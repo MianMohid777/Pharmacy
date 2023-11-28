@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 
 public interface ProductService {
 
@@ -39,5 +40,9 @@ public interface ProductService {
    List<String> getProductsByCategory(String name) throws SQLException;;
 
    HashMap<String,String> findAllProductHierarchy() throws SQLException;
+
+   void updateHierarchy(String code, String hierarchy) throws SQLException;
+
+   List<Vector<Object>> getStocksOfProduct(String code) throws SQLException;
 
 }

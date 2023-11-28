@@ -21,4 +21,7 @@ public interface ProductStock_IDAO {
 
     Integer findStock(Integer id, String code) throws SQLException;
 
+    List<Vector<Object>> findStockByProduct(String code) throws SQLException;
+
+
 }

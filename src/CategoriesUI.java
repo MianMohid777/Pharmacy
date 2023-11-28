@@ -1,5 +1,3 @@
-package Presentation.View;
-
 import Presentation.Controller.Main.PharmacyController;
 import Presentation.Controller.Supporting.UserController;
 

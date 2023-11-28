@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 
 public class ProductS_I implements ProductService {
 
@@ -114,5 +115,15 @@ public class ProductS_I implements ProductService {
     @Override
     public HashMap<String, String> findAllProductHierarchy() throws SQLException {
         return productCategoryRepo.findAllProductCategories();
+    }
+
+    @Override
+    public void updateHierarchy(String code, String hierarchy) throws SQLException {
+        productCategoryRepo.update(code,hierarchy);
+    }
+
+    @Override
+    public List<Vector<Object>> getStocksOfProduct(String code) throws SQLException {
+        return productStockRepo.findStockByProduct(code);
     }
 }
