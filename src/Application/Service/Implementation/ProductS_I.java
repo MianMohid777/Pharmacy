@@ -126,4 +126,5 @@ public class ProductS_I implements ProductService {
     public List<Vector<Object>> getStocksOfProduct(String code) throws SQLException {
         return productStockRepo.findStockByProduct(code);
     }
+
 }

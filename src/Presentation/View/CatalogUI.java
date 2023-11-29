@@ -20,13 +20,12 @@ import java.util.Map;
 public class CatalogUI extends javax.swing.JFrame {
 
     private Category c;
-    public CatalogUI( PharmacyController control) throws SQLException {
-        initComponents(control);
+    public CatalogUI( ) throws SQLException {
+        initComponents();
     }
 
 
-    private void initComponents( PharmacyController control) throws SQLException {
-
+    private void initComponents() throws SQLException {
 
 
         titlePanel = new javax.swing.JPanel();

@@ -44,6 +44,11 @@ public class CategoryHierDAO implements Intermediate_IDAO {
         rs.moveToCurrentRow();
     }
 
+    @Override
+    public void update(Object x, Object y) throws SQLException {
+
+    }
+
 
     public List<String> getTree(String leafId) throws SQLException {
 

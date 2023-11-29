@@ -5,22 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bae72e10-bba0-4449-8f97-979391ae4ca4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Presentation/View/CatalogUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Presentation/View/CatalogUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Presentation/View/AddProductUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Presentation/View/AddProductUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Presentation/View/StockUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Presentation/View/StockUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jdatepicker-2.0.3-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/970b51fd-f441-474d-83fa-dce4553d08bb/storage_v2/_src_/schema/PharmacyPos.gXy6Zg.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PharmacyPos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PharmacyPos.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Service/Implementation/ProductS_I.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/Implementation/ProductS_I.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductCategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductCategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/ProductStockDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryHierDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/CategoryHierDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/DAO/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/Intermediate_IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/Intermediate_IDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductStock_IDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/IDAO/Interface/ProductStock_IDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/Controller/Supporting/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/Controller/Supporting/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/View/CategoriesUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/CategoriesUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentation/View/CategoriesUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CategoriesUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/View/CatalogUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/View/CatalogUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Presentation/View/LogInUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/View/LogInUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentation/View/ManageProductUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Presentation/View/ManageProductUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,9 +99,9 @@
       <recent name="Application.Model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CatalogUI">
-    <configuration name="CatalogUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Presentation.View.CatalogUI" />
+  <component name="RunManager" selected="Application.StockUI">
+    <configuration name="AddProductUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Presentation.View.AddProductUI" />
       <module name="PharmacyPos" />
       <extension name="coverage">
         <pattern>
@@ -149,12 +152,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderS_I" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Application.Service.Implementation.OrderS_I" />
+    <configuration name="StockUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Presentation.View.StockUI" />
       <module name="PharmacyPos" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Application.Service.Implementation.*" />
+          <option name="PATTERN" value="Presentation.View.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -164,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CatalogUI" />
-        <item itemvalue="Application.LogInUI" />
+        <item itemvalue="Application.StockUI" />
         <item itemvalue="Application.ManageProductUI" />
         <item itemvalue="Application.ManagerController" />
-        <item itemvalue="Application.OrderS_I" />
+        <item itemvalue="Application.AddProductUI" />
+        <item itemvalue="Application.LogInUI" />
       </list>
     </recent_temporary>
   </component>
@@ -188,7 +191,8 @@
       <workItem from="1700772008568" duration="77979000" />
       <workItem from="1701070092779" duration="3943000" />
       <workItem from="1701093238977" duration="16844000" />
-      <workItem from="1701191656416" duration="550000" />
+      <workItem from="1701191656416" duration="14046000" />
+      <workItem from="1701268386128" duration="8934000" />
     </task>
     <servers />
   </component>

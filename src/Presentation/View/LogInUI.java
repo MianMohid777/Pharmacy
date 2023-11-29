@@ -18,7 +18,9 @@ public class LogInUI extends JFrame {
     private JTextField usernameField;
     private JPasswordField passwordField;
 
-    public LogInUI(PharmacyController control) {
+    public LogInUI() throws SQLException {
+
+        PharmacyController controller = new PharmacyController();
 
         setTitle("(POS) Point of Sale - Login");
         setSize(400, 250);
@@ -92,8 +94,9 @@ public class LogInUI extends JFrame {
                             {
                                 JOptionPane.showMessageDialog(null,"Manager: " + UserController.getU().getName()+ " Logged In");
                                 PharmacyController.managerController = new ManagerController();
-                                CatalogUI cUi = new CatalogUI(control);
-                                cUi.setVisible(true);
+                                //CatalogUI cUi = new CatalogUI();
+                                AddProductUI addUI = new AddProductUI();
+                                addUI.setVisible(true);
                                 dispose();
                             }
                             else {
@@ -118,14 +121,9 @@ public class LogInUI extends JFrame {
     }
 
     public static void main(String[] args) throws SQLException {
-        PharmacyController controller = new PharmacyController();
 
-        LogInUI ui = new LogInUI(controller);
+        LogInUI ui = new LogInUI();
     }
 
-    //private void openMainMenu() {
-        //new Menu();
-        //this.dispose();
-    //}
 
 }

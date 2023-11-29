@@ -51,7 +51,7 @@ public class UserDAO implements IDAO<User> {
     public void delete(Object id) throws SQLException {
 
         Connection conn = DB_Connection.getConnection();
-        String query = "DELETE FROM user WHERE id = ?";
+        String query = "DELETE FROM user WHERE userName = ?";
         PreparedStatement statement = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
         statement.setInt(1, (Integer) id);
         statement.executeUpdate();

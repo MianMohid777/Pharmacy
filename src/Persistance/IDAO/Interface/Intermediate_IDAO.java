@@ -9,5 +9,7 @@ public interface Intermediate_IDAO {
 
     void delete(Object x,Object y) throws SQLException;
 
+    void update(Object x,Object y) throws SQLException;
+
 
 }

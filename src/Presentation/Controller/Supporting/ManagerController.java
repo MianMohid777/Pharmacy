@@ -96,7 +96,7 @@ public class ManagerController {
     }
 
 
-    public Boolean updateProduct(String name,String code,String desc, Integer qtyPerPack, Float price,String hierarchy) throws SQLException {
+    public Boolean updateProduct(String name,String code,String desc, Integer qtyPerPack, Float price) throws SQLException {
         Product p = productMap.get(code);
 
         p.setName(name.toUpperCase());
@@ -104,7 +104,6 @@ public class ManagerController {
         p.setPrice(price);
         p.setStockQty(0);
         p.setPackQty(0);
-        p.setCategoryHierarchy(hierarchy);
         p.setQtyPerPack(qtyPerPack);
 
         if(productMap.containsKey(p.getCode()))
@@ -149,6 +148,27 @@ public class ManagerController {
             return true;
         }
 
+        return false;
+    }
+
+    public Boolean removeStock(Integer id,String code, Integer qty) throws SQLException {
+
+        if(productMap.containsKey(code)) {
+            Product p = productMap.get(code);
+
+
+            int newStockQty = p.getStockQty() - (p.getQtyPerPack()*qty);
+            int packReduce = p.getPackQty() - qty;
+
+            productService.deleteStock(id);
+
+            p.setPackQty(packReduce);
+            p.setStockQty(newStockQty);
+            productService.update(p);
+
+            return true;
+
+        }
         return false;
     }
 
@@ -230,6 +250,8 @@ public class ManagerController {
         }
         return true;
     }
+
+
     public Boolean addSubCategory(String parent,String child) throws SQLException {
 
 
@@ -279,29 +301,29 @@ public class ManagerController {
     }
 
 
-    List<String> giveSearchResult(String search) throws SQLException {
+   public List<String> giveSearchResult(String search) throws SQLException {
         return productService.searchProduct(search);
     }
 
-    Product getSearchedProd(String name) throws SQLException {
+    public Product getSearchedProd(String name) throws SQLException {
         return productService.findByName(name);
     }
 
-    Product codeSearch(String code) throws SQLException {
+    public Product codeSearch(String code) throws SQLException {
        return productMap.get(code);
     }
 
-    String checkCodeProd(Product p)
+    public String checkCodeProd(Product p)
     {
         return p.getCode();
     }
 
-    String checkCategoryName(String code) throws SQLException {
+    public String checkCategoryName(String code) throws SQLException {
 
        return categoryService.findByCode(code).getName();
     }
 
-    Category categorySearchByCode(String code) throws SQLException {
+    public Category categorySearchByCode(String code) throws SQLException {
         return categoryService.findByCode(code);
     }
 
@@ -428,6 +450,10 @@ public class ManagerController {
         this.parentChildCMap = parentChildCMap;
     }
 
+    public List<Vector<Object>> pileStocks(String code) throws SQLException
+    {
+        return productService.getStocksOfProduct(code);
+    }
     public static void main(String[] args) throws SQLException {
         ManagerController controller = new ManagerController();
 
@@ -490,7 +516,9 @@ public class ManagerController {
             //LocalDate date = LocalDate.of(2023,11,28);
             //controller.addStock("EN5Med66129908",20,date);
 
-            controller.SalesReport("monthly");
+            //controller.SalesReport("monthly");
+
+            System.out.println(controller.getSearchedProd("panadol"));
         }
 
 
