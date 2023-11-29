@@ -36,6 +36,8 @@ public class AssistantController {
             productMap.put(p.getCode(),p);
 
         }
+
+        clearExpireStock();
     }
 
     public Boolean addToCart(String code,Integer qty){ //Need to handle the Supply-Demand & Low Stock Check
@@ -108,6 +110,32 @@ public class AssistantController {
         o.setCustomerName("Tester 2");
 
         return o;
+    }
+    public Boolean clearExpireStock() throws SQLException{
+
+        HashMap<Integer,String> expireMap = productService.clearExpiredStock();
+
+        if(!expireMap.isEmpty()) {
+
+            Set<Integer> keys = expireMap.keySet();
+
+            for(Integer s : keys)
+            {
+                Integer qty = productService.deleteStock(s);
+                Product p = productMap.get(expireMap.get(s));
+
+                int stockMinus = p.getQtyPerPack()*qty;
+                p.setPackQty(p.getPackQty()-qty);
+                p.setStockQty(p.getStockQty()-stockMinus);
+
+                productService.update(p);
+
+                System.out.println("Stock with Id " + s + " and Code " + expireMap.get(s) + " Removed");
+            }
+            return true;
+
+        }
+        return false;
     }
 
     public Boolean sellStock(String code, Integer qty) throws SQLException {

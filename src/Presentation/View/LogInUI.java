@@ -1,16 +1,15 @@
 package Presentation.View;
 
 import Presentation.Controller.Main.PharmacyController;
+import Presentation.Controller.Supporting.AssistantController;
 import Presentation.Controller.Supporting.ManagerController;
 import Presentation.Controller.Supporting.UserController;
-import Presentation.Controller.Supporting.UserController.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.Arrays;
 
 public class LogInUI extends JFrame {
 
@@ -72,7 +71,6 @@ public class LogInUI extends JFrame {
 
         loginButton.setBackground(new Color(60, 179, 113)); // Green color
 
-        //loginButton.setForeground(Color.WHITE);
 
         loginButton.addActionListener(new ActionListener()
         {
@@ -94,13 +92,18 @@ public class LogInUI extends JFrame {
                             {
                                 JOptionPane.showMessageDialog(null,"Manager: " + UserController.getU().getName()+ " Logged In");
                                 PharmacyController.managerController = new ManagerController();
-                                //CatalogUI cUi = new CatalogUI();
-                                AddProductUI addUI = new AddProductUI();
-                                addUI.setVisible(true);
+                                PharmacyController.managerController.clearExpireStock();
+                                ManagerDashUI dashUI = new ManagerDashUI();
+                                dashUI.setVisible(true);
                                 dispose();
                             }
                             else {
                                 JOptionPane.showMessageDialog(null,"Sales Assistant: " + UserController.getU().getName()+ " Logged In");
+                                PharmacyController.assistantController = new AssistantController();
+                                PharmacyController.assistantController.clearExpireStock();
+                                POS_UI posUi = new POS_UI();
+                                posUi.setVisible(true);
+                                dispose();
 
                             }
                         }

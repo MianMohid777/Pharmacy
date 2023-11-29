@@ -68,6 +68,8 @@ public class ManagerController {
                 p.setCategoryHierarchy(productHierarchyMap.get(key));
             }
         }
+
+       // clearExpireStock();
     }
 
 
