@@ -518,7 +518,7 @@ public class ManagerController {
             //LocalDate date = LocalDate.of(2023,11,28);
             //controller.addStock("EN5Med66129908",20,date);
 
-            //controller.SalesReport("monthly");
+            controller.SalesReport("monthly");
 
             System.out.println(controller.getSearchedProd("panadol"));
         }

@@ -99,7 +99,7 @@ public class Order extends ItemContainer{
 
             table.setWidthPercentage(100);
 
-            // Set cell padding
+
             table.setSpacingBefore(10f);
             table.setSpacingAfter(10f);
 

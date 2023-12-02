@@ -18,6 +18,7 @@ public class AssistantController {
     private ProductService productService;
     private OrderService orderService;
 
+    private static Order order;
 
     private static ItemContainer container;
 
@@ -25,6 +26,7 @@ public class AssistantController {
     public AssistantController() throws SQLException {
         productService = new ProductS_I();
         orderService = new OrderS_I();
+        order = new Order();
 
         List<Product> productList = productService.getAllProducts();
 
@@ -40,28 +42,42 @@ public class AssistantController {
         clearExpireStock();
     }
 
-    public Boolean addToCart(String code,Integer qty){ //Need to handle the Supply-Demand & Low Stock Check
+    public Boolean addToCart(String code,Integer qty) { //Need to handle the Supply-Demand & Low Stock Check
 
-        if(productMap.containsKey(code)) {
+        if (productMap.containsKey(code)) {
             Product p = productMap.get(code);
 
-            if(p.getStockQty() > qty) {
-                Item i = new Item();
-                i.setP(p);
-                i.setQtyOrdered(qty);
+            if (container.getItemMap().containsKey(p.getName())) {
 
-                container.add(i);
+                Item i = container.getItemMap().get(p.getName());
+                int newQty = i.getQtyOrdered()+qty;
 
-                System.out.println("Item Name = " + p.getName() + " with Ordered Qty = " + i.getQtyOrdered() + " Added to Cart");
-                return true;
+                    if(p.getStockQty() > newQty) {
+                        updateCart(code, newQty);
+                        return true;
+                    }
+                    else {
+                        System.out.println("Item Name = " + p.getName() + " with Ordered Qty = " + qty + " has Insufficient Stock");
+                    }
+
+                } else {
+                    if (p.getStockQty() > qty) {
+                        Item i = new Item();
+                        i.setP(p);
+                        i.setQtyOrdered(qty);
+
+                        container.add(i);
+
+                        System.out.println("Item Name = " + p.getName() + " with Ordered Qty = " + i.getQtyOrdered() + " Added to Cart");
+                        return true;
+                    } else
+                        System.out.println("Item Name = " + p.getName() + " with Ordered Qty = " + qty + " has Insufficient Stock");
+
+                }
             }
-            else
-                System.out.println("Item Name = " + p.getName() + " with Ordered Qty = " + qty + " has Insufficient Stock");
-
-
+            return false;
         }
-        return false;
-    }
+
 
     public Boolean updateCart(String code, Integer qty)
     {
@@ -106,8 +122,6 @@ public class AssistantController {
         Order o = new Order();
         o.setItemMap(container.getItemMap());
         o.setTimeStamp(LocalDateTime.now());
-        o.setName("Mohid Jillani");
-        o.setCustomerName("Tester 2");
 
         return o;
     }
@@ -167,11 +181,11 @@ public class AssistantController {
         return false;
     }
 
-    List<String> giveSearchResult(String search) throws SQLException {
+    public List<String> giveSearchResult(String search) throws SQLException {
         return productService.searchProduct(search);
     }
 
-    Product getSearchedProd(String name) throws SQLException {
+    public Product getSearchedProd(String name) throws SQLException {
         return productService.findByName(name);
     }
 
@@ -220,6 +234,46 @@ public class AssistantController {
         }
 
         return null;
+    }
+
+    public ProductService getProductService() {
+        return productService;
+    }
+
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
+    }
+
+    public OrderService getOrderService() {
+        return orderService;
+    }
+
+    public void setOrderService(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
+    public static ItemContainer getContainer() {
+        return container;
+    }
+
+    public static void setContainer(ItemContainer container) {
+        AssistantController.container = container;
+    }
+
+    public HashMap<String, Product> getProductMap() {
+        return productMap;
+    }
+
+    public void setProductMap(HashMap<String, Product> productMap) {
+        this.productMap = productMap;
+    }
+
+    public static Order getOrder() {
+        return order;
+    }
+
+    public static void setOrder(Order order) {
+        AssistantController.order = order;
     }
 
     public static void main (String[] args) throws SQLException {

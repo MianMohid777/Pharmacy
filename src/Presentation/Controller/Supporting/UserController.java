@@ -5,8 +5,10 @@ import Application.Model.Sales_Assistant;
 import Application.Model.User;
 import Application.Service.Implementation.UserS_I;
 import Application.Service.UserService;
+import Presentation.Controller.Main.PharmacyController;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserController {
 
@@ -65,10 +67,14 @@ public class UserController {
 
     public void logOut()
     {
-        u.getRole().permissions();
-        u = null;
+       // u.getRole().permissions();
+        PharmacyController.assistantController = null;
+        PharmacyController.managerController = null;
     }
 
+    public List<User> findAll() throws SQLException {
+        return userService.getAll();
+    }
     public static User getU() {
         return u;
     }

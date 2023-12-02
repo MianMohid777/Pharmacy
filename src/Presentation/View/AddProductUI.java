@@ -25,7 +25,7 @@ public class AddProductUI extends javax.swing.JFrame {
     private void initComponents() throws SQLException {
 
 
-        //PharmacyController.managerController = new ManagerController();
+        PharmacyController.managerController = new ManagerController();
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
