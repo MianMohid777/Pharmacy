@@ -316,6 +316,49 @@ public class CatalogUI extends javax.swing.JFrame {
         delBtn.setText("DELETE");
 
 
+        delBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                if(c != null)
+                {
+                    String node = c.getName();
+                    DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) categoryTree.getLastSelectedPathComponent();
+                    try {
+
+                        PharmacyController.managerController.removeCategory(c);
+                        DefaultMutableTreeNode parentNode = (DefaultMutableTreeNode) selectedNode.getParent();
+                        if(!selectedNode.isLeaf())
+                        {
+
+                            parentNode.remove(selectedNode);
+
+                            for (int i = 0; i < selectedNode.getChildCount(); i++) {
+                                DefaultMutableTreeNode childNode = (DefaultMutableTreeNode) selectedNode.getChildAt(i);
+                                parentNode.add(childNode);
+                            }
+
+
+                        }
+                        else if(selectedNode.isLeaf()){
+
+                            parentNode.remove(selectedNode);
+
+                        }
+
+                        DefaultTreeModel tModel = (DefaultTreeModel) categoryTree.getModel();
+                        tModel.reload(parentNode);
+
+
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+
+
+                }
+            }
+        });
 
 
 
@@ -415,7 +458,7 @@ public class CatalogUI extends javax.swing.JFrame {
                                                       DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(jTextField1.getText());
                                                       selectedNode.add(newNode);
                                                       DefaultTreeModel treeModel2 = (DefaultTreeModel) categoryTree.getModel();
-                                                      treeModel2.nodeChanged(selectedNode);
+                                                      treeModel2.reload();
                                                       TreeSelectionModel selectionModel1 = categoryTree.getSelectionModel();
                                                       selectionModel1.clearSelection();
 

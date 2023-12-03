@@ -44,7 +44,7 @@ public class CategoryDAO implements IDAO<Category> {
         String code = (String) id;
         rs.absolute(0);
 
-        while(rs.next() && !rs.getString(2).equals(code));;
+        while(rs.next() && !rs.getString(3).equals(code));;
 
         rs.deleteRow();
 

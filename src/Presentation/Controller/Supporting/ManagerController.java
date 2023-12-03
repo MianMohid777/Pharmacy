@@ -256,6 +256,36 @@ public class ManagerController {
     }
 
 
+    public void removeFromHierarchy(String category) throws SQLException {
+        List<String> code = productService.getProductsByCategory(category);
+
+        for(String codes : code)
+        {
+            Product p = productMap.get(codes);
+            String curr = p.getCategoryHierarchy();
+
+            String[] cs = curr.split("/");
+
+            StringBuilder newHier = new StringBuilder();
+
+            int itr = 0;
+            for(String c : cs)
+            {
+                if(!c.equalsIgnoreCase(category) && itr+1 !=  cs.length)
+                   newHier.append(c).append("/");
+                else if(!c.equalsIgnoreCase(category) && itr+1 == cs.length)
+                    newHier.append(c);
+
+                itr++;
+            }
+
+
+            p.setCategoryHierarchy(String.valueOf(newHier));
+
+            productService.updateHierarchy(p.getCode(), String.valueOf(newHier));
+        }
+
+    }
     public Boolean addSubCategory(String parent,String child) throws SQLException {
 
 
@@ -331,6 +361,13 @@ public class ManagerController {
         return categoryService.findByCode(code);
     }
 
+    public Boolean removeCategory(Category c) throws SQLException {
+        categoryService.delete(c.getCode());
+        categoryMap.remove(c.getName());
+        removeFromHierarchy(c.getName());
+
+        return true;
+    }
 
     ///////////////////////-------REPORT----////////////////////////////////
 

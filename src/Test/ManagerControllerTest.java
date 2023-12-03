@@ -11,17 +11,17 @@ import java.util.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ManagerControllerTest {
+public class ManagerControllerTest {
 
     @Test
-    void addProduct() throws SQLException {
+    void testaddProduct() throws SQLException {
         ManagerController controller = new ManagerController();
         assertFalse(controller.addProduct("TestProduct1", "Test Description", 10, 5.0F, "", "TestCategory"));
         assertFalse(controller.addProduct("DuplicateProduct", "Duplicate Description", 5, 8.0F, "", "TestCategory"));
     }
 
     @Test
-    void updateProduct() throws SQLException {
+    void testupdateProduct() throws SQLException {
         ManagerController controller = new ManagerController();
         assertTrue(controller.updateProduct("UpdatedProduct", "EN5Med66129908", "Updated Description", 15, 10.0F));
         try {
@@ -33,7 +33,7 @@ class ManagerControllerTest {
     }
 
     @Test
-    void removeProduct() throws SQLException {
+    void testremoveProduct() throws SQLException {
         ManagerController controller = new ManagerController();
         try {
             assertTrue(controller.removeProduct("EN5Med66129908"));
@@ -44,7 +44,7 @@ class ManagerControllerTest {
     }
 
     @Test
-    void addStock() throws SQLException {
+    void testaddStock() throws SQLException {
         ManagerController controller = new ManagerController();
         LocalDate futureDate = LocalDate.now().plusDays(30);
         assertTrue(controller.addStock("EN5Med66129908", 20, futureDate));
@@ -52,7 +52,7 @@ class ManagerControllerTest {
     }
 
     @Test
-    void removeStock() throws SQLException {
+    void testremoveStock() throws SQLException {
         ManagerController controller = new ManagerController();
         try{
             assertTrue(controller.removeStock(1, "EN5Med66129908", 5));
@@ -64,34 +64,34 @@ class ManagerControllerTest {
     }
 
     @Test
-    void clearExpireStock() throws SQLException {
+    void testclearExpireStock() throws SQLException {
         ManagerController controller = new ManagerController();
         assertFalse(controller.clearExpireStock()); // Assuming there's no expired stock initially
     }
 
     @Test
-    void addCategory() throws SQLException {
+    void testaddCategory() throws SQLException {
         ManagerController controller = new ManagerController();
         assertTrue(controller.addCategory("NewCategoryX", "New Category Description"));
         assertFalse(controller.addCategory("DuplicateCategory", "Duplicate Category Description"));
     }
 
     @Test
-    void updateCategory() throws SQLException {
+    void testupdateCategory() throws SQLException {
         ManagerController controller = new ManagerController();
         assertFalse(controller.updateCategory("UpdatedCategory", "Updated Category Description", "Ki-2047723204"));
         assertFalse(controller.updateCategory("InvalidCategory", "Invalid Category Description", "InvalidCode"));
     }
 
     @Test
-    void updateHierarchy() throws SQLException {
+    void testupdateHierarchy() throws SQLException {
         ManagerController controller = new ManagerController();
         assertTrue(controller.updateHierarchy("TestCategory", "NewRegex"));
         assertTrue(controller.updateHierarchy("InvalidCategory", "NewRegex"));
     }
 
     @Test
-    void addSubCategory() throws SQLException {
+    void testaddSubCategory() throws SQLException {
         ManagerController controller = new ManagerController();
         assertFalse(controller.addSubCategory("TestCategory", "NewSubCategory"));
         assertFalse(controller.addSubCategory("InvalidParentCategory", "NewSubCategory"));
@@ -99,7 +99,7 @@ class ManagerControllerTest {
     }
 
     @Test
-    void giveSearchResult() throws SQLException {
+    void testgiveSearchResult() throws SQLException {
         ManagerController controller = new ManagerController();
         List<String> searchResult = controller.giveSearchResult("Panadol");
         assertNotNull(searchResult);
@@ -107,20 +107,20 @@ class ManagerControllerTest {
     }
 
     @Test
-    void getSearchedProd() throws SQLException {
+    void testgetSearchedProd() throws SQLException {
         ManagerController controller = new ManagerController();
         assertNotNull(controller.getSearchedProd("panadol"));
     }
 
     @Test
-    void codeSearch() throws SQLException {
+    void testcodeSearch() throws SQLException {
         ManagerController controller = new ManagerController();
         assertNotNull(controller.codeSearch("EN5Med66129908"));
         assertNull(controller.codeSearch("InvalidCode"));
     }
 
     @Test
-    void checkCodeProd() throws SQLException {
+    void testcheckCodeProd() throws SQLException {
         ManagerController controller = new ManagerController();
         Product product = controller.getSearchedProd("panadol");
         assertNotNull(product);
@@ -128,13 +128,13 @@ class ManagerControllerTest {
     }
 
     @Test
-    void checkCategoryName() throws SQLException {
+    void testcheckCategoryName() throws SQLException {
         ManagerController controller = new ManagerController();
         assertNotEquals("TestCategory", controller.checkCategoryName("Ki-2047723204"));
     }
 
     @Test
-    void categorySearchByCode() throws SQLException {
+    void testcategorySearchByCode() throws SQLException {
         ManagerController controller = new ManagerController();
         assertNotNull(controller.categorySearchByCode("Ki-2047723204"));
         try {
@@ -146,7 +146,7 @@ class ManagerControllerTest {
     }
 
     @Test
-    void salesReport() throws SQLException {
+    void testsalesReport() throws SQLException {
         ManagerController controller = new ManagerController();
         assertDoesNotThrow(() -> controller.SalesReport("DAILY",null,null));
         assertDoesNotThrow(() -> controller.SalesReport("WEEKLY",null,null));
@@ -154,7 +154,7 @@ class ManagerControllerTest {
     }
 
     @Test
-    void pileStocks() throws SQLException {
+    void testpileStocks() throws SQLException {
         ManagerController controller = new ManagerController();
         List<Vector<Object>> stocks = controller.pileStocks("EN5Med66129908");
         assertNotNull(stocks);
