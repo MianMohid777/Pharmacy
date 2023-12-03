@@ -390,6 +390,12 @@ public class ManageProductUI extends javax.swing.JFrame {
         delBtn.setFont(new java.awt.Font("Avenir", 1, 18)); // NOI18N
         delBtn.setText("REMOVE");
 
+        delBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(ManageProductUI.this,"A product can't be removed, but Stocks can be remove from Inventory");
+            }
+        });
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
