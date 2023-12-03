@@ -7,7 +7,9 @@ import Presentation.Controller.Supporting.AssistantController;
 import Presentation.Controller.Supporting.UserController;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -27,26 +29,27 @@ public class GenerateBillUI extends javax.swing.JFrame {
 
     private void initComponents() throws SQLException {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        billTable = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        nameField = new javax.swing.JTextField();
-        billBtn = new javax.swing.JButton();
-        cancelBtn = new javax.swing.JButton();
+        jLabel1 = new JLabel();
+        jLabel2 = new JLabel();
+        jScrollPane2 = new JScrollPane();
+        billTable = new JTable();
+        jLabel3 = new JLabel();
+        nameField = new JTextField();
+        cancelBtn = new JButton();
+        billBtn = new JButton();
         panel = new JPanel();
+        totalLbl = new JLabel();
 
-        panel.setBackground(new java.awt.Color(255, 255, 255));
+        panel.setBackground(new Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Avenir", 1, 36)); // NOI18N
+        jLabel1.setFont(new Font("Avenir", 1, 36)); // NOI18N
         jLabel1.setText("PillPal Pharmacy: Order Bill");
 
-        jLabel2.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel2.setFont(new Font("Avenir", 0, 18)); // NOI18N
         jLabel2.setText("Customer Order");
 
-        billTable.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
-        billTable.setModel(new javax.swing.table.DefaultTableModel(
+        billTable.setFont(new Font("Avenir", 0, 18)); // NOI18N
+        billTable.setModel(new DefaultTableModel(
                 new Object[][]{
 
                 },
@@ -55,7 +58,7 @@ public class GenerateBillUI extends javax.swing.JFrame {
                 }
         ) {
             Class[] types = new Class[]{
-                    java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
+                    Integer.class, String.class, Integer.class, Float.class, Float.class
             };
             boolean[] canEdit = new boolean[]{
                     false, false, false, false, false
@@ -73,13 +76,13 @@ public class GenerateBillUI extends javax.swing.JFrame {
         billModel = (DefaultTableModel) billTable.getModel();
 
 
-        jLabel3.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        jLabel3.setFont(new Font("Avenir", 0, 18)); // NOI18N
         jLabel3.setText("Customer Name:");
 
-        nameField.setFont(new java.awt.Font("Avenir", 0, 18)); // NOI18N
+        nameField.setFont(new Font("Avenir", 0, 18)); // NOI18N
 
-        billBtn.setFont(new java.awt.Font("Avenir", 1, 18)); // NOI18N
-        billBtn.setForeground(new java.awt.Color(0, 153, 255));
+        billBtn.setFont(new Font("Avenir", 1, 18)); // NOI18N
+        billBtn.setForeground(new Color(0, 153, 255));
         billBtn.setText("GENERATE BILL");
 
         billBtn.addActionListener(new ActionListener() {
@@ -94,7 +97,7 @@ public class GenerateBillUI extends javax.swing.JFrame {
                     else {
                         Order o = AssistantController.getOrder();
                         o.setCustomerName(nameField.getText().trim());
-                        //o.setName(UserController.getU().getName());
+                        o.setName(UserController.getU().getName());
 
                         List<Product> lowStockP = PharmacyController.assistantController.generateBill(AssistantController.getOrder());
 
@@ -110,10 +113,10 @@ public class GenerateBillUI extends javax.swing.JFrame {
                 }
             }
         });
-        billBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        cancelBtn.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 
-        cancelBtn.setFont(new java.awt.Font("Avenir", 1, 14)); // NOI18N
-        cancelBtn.setForeground(new java.awt.Color(255, 51, 51));
+        cancelBtn.setFont(new Font("Avenir", 1, 14)); // NOI18N
+        cancelBtn.setForeground(new Color(255, 51, 51));
         cancelBtn.setText("CANCEL");
 
         cancelBtn.addActionListener(new ActionListener() {
@@ -136,79 +139,90 @@ public class GenerateBillUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(panel);
+        totalLbl.setFont(new Font("Avenir", 1, 24)); // NOI18N
+        totalLbl.setForeground(new Color(204, 0, 51));
+        totalLbl.setText("Grand Total:");
+
+        GroupLayout jPanel1Layout = new GroupLayout(panel);
         panel.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap(155, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                         .addComponent(jLabel2)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(cancelBtn, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
                                                         .addGap(157, 157, 157))
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                                         .addComponent(jLabel3)
                                                                         .addGap(18, 18, 18)
-                                                                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addComponent(nameField, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE))
                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                                         .addGap(317, 317, 317)
-                                                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                        .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 456, GroupLayout.PREFERRED_SIZE)))
                                                         .addGap(425, 425, 425)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1088, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 1088, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(132, 132, 132))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(billBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(590, 590, 590))))
+                                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(billBtn, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
+                                                .addGap(590, 590, 590))
+                                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(totalLbl, GroupLayout.PREFERRED_SIZE, 351, GroupLayout.PREFERRED_SIZE)
+                                                .addGap(489, 489, 489))))
         );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(43, 43, 43)
                                 .addComponent(jLabel1)
                                 .addGap(45, 45, 45)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel3)
-                                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(nameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(63, 63, 63)
                                                 .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(44, 44, 44)
-                                                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(80, 80, 80)
-                                .addComponent(billBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cancelBtn, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(totalLbl)
+                                .addGap(37, 37, 37)
+                                .addComponent(billBtn, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(213, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 1375, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 773, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 781, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))
         );
+
+
 
          addWindowListener(new WindowAdapter() {
             @Override
@@ -232,12 +246,16 @@ public class GenerateBillUI extends javax.swing.JFrame {
                     rowData.add(p.getPrice());
                     rowData.add(total);
                     billModel.addRow(rowData);
+
+                    totalLbl.setText(totalLbl.getText() + "  " + AssistantController.getContainer().total());
                 }
             }
+
+
         });
 
-         setResizable(false);
-         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setResizable(false);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         pack();
     }// </editor-fold>
 
@@ -249,8 +267,8 @@ public class GenerateBillUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify
     private javax.swing.JTable billTable;
-    private javax.swing.JButton billBtn;
     private javax.swing.JButton cancelBtn;
+    private javax.swing.JButton billBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -259,6 +277,8 @@ public class GenerateBillUI extends javax.swing.JFrame {
     private javax.swing.JTextField nameField;
 
     private DefaultTableModel billModel;
+
+    private javax.swing.JLabel totalLbl;
     // End of variables declaration
 }
 

@@ -32,8 +32,8 @@ public class LogInUI extends JFrame {
         gbc.insets = new Insets(5, 5, 5, 5);
 
 
-        JLabel logoLabel = new JLabel("PHARMACY POS LOGIN");
-        logoLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        JLabel logoLabel = new JLabel("PILLPAL PHARMACY POS LOGIN");
+        logoLabel.setFont(new Font("Avenir", Font.BOLD, 18));
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;

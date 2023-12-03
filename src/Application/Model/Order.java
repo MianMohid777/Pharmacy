@@ -75,14 +75,14 @@ public class Order extends ItemContainer{
             PdfWriter.getInstance(document, new FileOutputStream("/Users/FullStackMohid/IdeaProjects/PharamacyPos/Invoices/POS-Invoice-" + id + ".pdf"));
             document.open();
 
-            Image logo = Image.getInstance("/Users/FullStackMohid/IdeaProjects/PharamacyPos/src/Resources.PharmacyLogo.jpeg");
+            Image logo = Image.getInstance("/Users/FullStackMohid/IdeaProjects/PharamacyPos/src/Resources/PharmacyLogo.jpeg");
             logo.scaleToFit(100, 100);
             logo.setAlignment(Element.ALIGN_CENTER);
             document.add(logo);
             document.add(Chunk.NEWLINE);
 
             Font titleFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD, BaseColor.BLUE);
-            Paragraph title = new Paragraph("Pharmacy Bill", titleFont);
+            Paragraph title = new Paragraph("PillPal Pharmacy Invoice", titleFont);
             title.setAlignment(Element.ALIGN_CENTER);
             document.add(title);
 
