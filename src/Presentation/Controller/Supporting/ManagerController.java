@@ -429,13 +429,13 @@ public class ManagerController {
        }
     }
 
-    public void InventoryReport() throws SQLException
-    {
+    public void InventoryReport() throws SQLException, IOException {
            HashMap<String,List<Vector<Object>>> stockProdMap = new HashMap<>();
+
+           HashMap<String,Integer> stockQty = new HashMap<>();
 
            Set<String> keys = productMap.keySet();
 
-           Vector<Integer> availStock = new Vector<>();
 
            for(String key: keys)
            {
@@ -445,7 +445,15 @@ public class ManagerController {
 
                stockProdMap.put(p.getName(),stockData);
 
-               availStock.add(p.getStockQty());
+               stockQty.put(p.getName(),p.getStockQty());
+           }
+
+           InventoryReport invReport = new InventoryReport();
+
+           if(!stockProdMap.isEmpty())
+           {
+               invReport.assignData(stockProdMap,stockQty);
+               invReport.display();
            }
 
 
@@ -550,9 +558,11 @@ public class ManagerController {
             //LocalDate date = LocalDate.of(2023,11,28);
             //controller.addStock("EN5Med66129908",20,date);
 
-            controller.SalesReport("monthly",null,null);
+            //controller.SalesReport("monthly",null,null);
 
-            System.out.println(controller.getSearchedProd("panadol"));
+            //System.out.println(controller.getSearchedProd("panadol"));
+
+            controller.InventoryReport();
         }
 
 

@@ -1,7 +1,9 @@
 package Application.Model;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Vector;
 
 public abstract class Report {
@@ -11,7 +13,7 @@ public abstract class Report {
     protected HashMap<String, Vector<Object>> reportData;
 
 
-    abstract public void display();
+    abstract public void display() throws IOException;
 
 
     public HashMap<String, Vector<Object>> getReportData() {
@@ -37,4 +39,6 @@ public abstract class Report {
     public void setEnd(LocalDate end) {
         this.end = end;
     }
+
+
 }

@@ -22,8 +22,6 @@ public class ReportUI extends javax.swing.JFrame {
 
     private void initComponents() throws SQLException {
 
-        PharmacyController controller = new PharmacyController();
-        PharmacyController.managerController = new ManagerController();
 
         sqlDateModel1 = new org.jdatepicker.SqlDateModel();
         jPanel1 = new javax.swing.JPanel();
@@ -108,7 +106,10 @@ public class ReportUI extends javax.swing.JFrame {
                         todayRadio.setEnabled(false);
                         weekRadio.setEnabled(false);
                         monthRadio.setEnabled(false);
-                        customRadio.setSelected(true);
+                        customRadio.setEnabled(false);
+                        fromDate.setEnabled(false);
+                        toDate.setEnabled(false);
+
                     }
                     else if(reportTypeBox.getSelectedItem().equals("Sales Report"))
                     {
@@ -150,7 +151,7 @@ public class ReportUI extends javax.swing.JFrame {
 
                 if(!Objects.equals(reportTypeBox.getSelectedItem(), "-Select"))
                 {
-                    if(group.getSelection() != null)
+                    if(group.getSelection() != null && Objects.equals(reportTypeBox.getSelectedItem(), "Sales Report"))
                     {
 
                         if(customRadio.isSelected()) {
@@ -213,6 +214,16 @@ public class ReportUI extends javax.swing.JFrame {
                             }
                         }
 
+                    }
+                    else if(group.getSelection() == null && Objects.equals(reportTypeBox.getSelectedItem(), "Inventory Report"))
+                    {
+                        try {
+                            PharmacyController.managerController.InventoryReport();
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
                     }
                     else {
                         JOptionPane.showMessageDialog(ReportUI.this,"Select a Date Range to proceed !");

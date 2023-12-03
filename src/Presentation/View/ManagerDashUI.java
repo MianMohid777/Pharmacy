@@ -149,7 +149,14 @@ public class ManagerDashUI extends javax.swing.JFrame {
         jButton6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-;
+                ReportUI reportUI = null;
+                try {
+                    reportUI = new ReportUI();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+                reportUI.setVisible(true);
+                dispose();
             }
 
 
