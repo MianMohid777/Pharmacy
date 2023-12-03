@@ -333,7 +333,7 @@ public class ManagerController {
     ///////////////////////-------REPORT----////////////////////////////////
 
 
-    public void SalesReport(String type) throws SQLException {
+    public void SalesReport(String type,LocalDate from,LocalDate to) throws SQLException {
 
         LocalDateTime start = LocalDateTime.now();
         LocalDateTime end = LocalDateTime.now();
@@ -364,6 +364,13 @@ public class ManagerController {
             start = start.minusDays(currDayM+1);
 
             report = new MonthlyReport();
+        }
+        else if(type.equalsIgnoreCase("CUSTOM") && from != null && to != null)
+        {
+            start = from.atStartOfDay();
+            end = to.atStartOfDay();
+
+            report = new CustomReport();
         }
 
 
@@ -518,7 +525,7 @@ public class ManagerController {
             //LocalDate date = LocalDate.of(2023,11,28);
             //controller.addStock("EN5Med66129908",20,date);
 
-            controller.SalesReport("monthly");
+            controller.SalesReport("monthly",null,null);
 
             System.out.println(controller.getSearchedProd("panadol"));
         }
