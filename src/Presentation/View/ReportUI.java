@@ -219,11 +219,11 @@ public class ReportUI extends javax.swing.JFrame {
                     {
                         try {
                             PharmacyController.managerController.InventoryReport();
-                        } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
-                        } catch (IOException ex) {
+                        } catch (SQLException | IOException ex) {
                             throw new RuntimeException(ex);
                         }
+
+                        JOptionPane.showMessageDialog(ReportUI.this, "Inventory Report Generated");
                     }
                     else {
                         JOptionPane.showMessageDialog(ReportUI.this,"Select a Date Range to proceed !");

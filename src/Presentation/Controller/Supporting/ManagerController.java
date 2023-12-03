@@ -102,19 +102,20 @@ public class ManagerController {
     public Boolean updateProduct(String name,String code,String desc, Integer qtyPerPack, Float price) throws SQLException {
         Product p = productMap.get(code);
 
-        p.setName(name.toUpperCase());
-        p.setDesc(desc);
-        p.setPrice(price);
-        p.setStockQty(0);
-        p.setPackQty(0);
-        p.setQtyPerPack(qtyPerPack);
+        if(p!= null) {
+            p.setName(name.toUpperCase());
+            p.setDesc(desc);
+            p.setPrice(price);
+            p.setStockQty(0);
+            p.setPackQty(0);
+            p.setQtyPerPack(qtyPerPack);
 
-        if(productMap.containsKey(p.getCode()))
-        {
-            productMap.put(p.getCode(),p);
-            productService.update(p);
+            if (productMap.containsKey(p.getCode())) {
+                productMap.put(p.getCode(), p);
+                productService.update(p);
 
-            return true;
+                return true;
+            }
         }
 
         return false;
