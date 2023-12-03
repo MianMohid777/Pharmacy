@@ -95,6 +95,7 @@ public class LogInUI extends JFrame {
                                 PharmacyController.managerController.clearExpireStock();
                                 ManagerDashUI dashUI = new ManagerDashUI();
                                 dashUI.setVisible(true);
+
                                 dispose();
                             }
                             else {

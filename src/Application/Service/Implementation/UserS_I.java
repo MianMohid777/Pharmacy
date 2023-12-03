@@ -23,13 +23,18 @@ public class UserS_I implements UserService {
     }
 
     @Override
+    public void update(User u) throws SQLException {
+        userRepo.update(u);
+    }
+
+    @Override
     public List<User> getAll() throws SQLException {
 
         return userRepo.findAll();
     }
 
     @Override
-    public void delete(Integer id) throws SQLException {
+    public void delete(String id) throws SQLException {
 
         userRepo.delete(id);
     }

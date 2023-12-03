@@ -53,12 +53,13 @@ public class CatalogUI extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         saveBtn = new javax.swing.JButton();
         hierLbl = new javax.swing.JLabel();
-
+        backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Pharmacy-POS");
-        setBackground(new java.awt.Color(0, 0, 0));
-        setForeground(new java.awt.Color(0, 0, 0));
+        setTitle("PillPal Pharmacy-POS");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
+       // setForeground(new java.awt.Color(0, 0, 0));
         setName("categoryFrame"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1620, 1000));
 
@@ -68,20 +69,26 @@ public class CatalogUI extends javax.swing.JFrame {
 
 
         titlePanel.setFont(new java.awt.Font("Avenir", 3, 13)); // NOI18N
+        titlePanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        titleLabel.setFont(new java.awt.Font("Heiti TC", 1, 24)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Avenir", 1, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Product Catalog");
         titleLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        backBtn.setFont(new java.awt.Font("Avenir", 1, 18)); // NOI18N
+        backBtn.setText("Back");
 
         javax.swing.GroupLayout titlePanelLayout = new javax.swing.GroupLayout(titlePanel);
         titlePanel.setLayout(titlePanelLayout);
         titlePanelLayout.setHorizontalGroup(
                 titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(titlePanelLayout.createSequentialGroup()
-                                .addGap(453, 453, 453)
+                                .addGap(57, 57, 57)
+                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(313, 313, 313)
                                 .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(563, Short.MAX_VALUE))
         );
         titlePanelLayout.setVerticalGroup(
                 titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,6 +96,9 @@ public class CatalogUI extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(28, Short.MAX_VALUE))
+                        .addGroup(titlePanelLayout.createSequentialGroup()
+                                .addComponent(backBtn)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
 
@@ -214,6 +224,7 @@ public class CatalogUI extends javax.swing.JFrame {
         categoryTree.setFont(new java.awt.Font("Avenir", 1, 18)); // NOI18N
         jScrollPane1.setViewportView(categoryTree);
 
+        treePanel.setBackground(new java.awt.Color(255, 255, 255));
         javax.swing.GroupLayout treePanelLayout = new javax.swing.GroupLayout(treePanel);
         treePanel.setLayout(treePanelLayout);
         treePanelLayout.setHorizontalGroup(
@@ -427,6 +438,18 @@ public class CatalogUI extends javax.swing.JFrame {
         hierLbl.setFont(new java.awt.Font("Avenir", 3, 15)); // NOI18N
         hierLbl.setText("");
 
+        backBtn.setFont(new java.awt.Font("Avenir", 1, 18)); // NOI18N
+        backBtn.setText("Back");
+        backBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ManagerDashUI managerDashUI = new ManagerDashUI();
+
+                managerDashUI.setVisible(true);
+                dispose();
+            }
+        });
+
         javax.swing.GroupLayout addCatPanelLayout = new javax.swing.GroupLayout(addCatPanel);
         addCatPanel.setLayout(addCatPanelLayout);
         addCatPanelLayout.setHorizontalGroup(
@@ -554,5 +577,7 @@ public class CatalogUI extends javax.swing.JFrame {
     private javax.swing.JLabel titleLabel;
     private javax.swing.JPanel titlePanel;
     private javax.swing.JPanel treePanel;
+    private javax.swing.JButton backBtn;
+
     // End of variables declaration
 }

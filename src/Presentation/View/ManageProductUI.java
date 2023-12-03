@@ -26,7 +26,7 @@ public class ManageProductUI extends javax.swing.JFrame {
 
     private void initComponents() throws SQLException {
 
-        PharmacyController.managerController = new ManagerController();
+
         mainPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         titleLbl = new javax.swing.JLabel();
@@ -52,6 +52,7 @@ public class ManageProductUI extends javax.swing.JFrame {
         descArea = new javax.swing.JTextArea();
         updateBtn = new javax.swing.JButton();
         delBtn = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,7 +91,9 @@ public class ManageProductUI extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(567, 567, 567)
+                                .addGap(51, 51, 51)
+                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(425, 425, 425)
                                 .addComponent(titleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -104,7 +107,9 @@ public class ManageProductUI extends javax.swing.JFrame {
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(titleLbl)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(titleLbl)
+                                        .addComponent(backBtn))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(addBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -230,6 +235,17 @@ public class ManageProductUI extends javax.swing.JFrame {
             }
         });
 
+        backBtn.setFont(new java.awt.Font("Avenir", 1, 18)); // NOI18N
+        backBtn.setText("Back");
+        backBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ManagerDashUI managerDashUI = new ManagerDashUI();
+
+                managerDashUI.setVisible(true);
+                dispose();
+            }
+        });
         showBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -537,5 +553,7 @@ public class ManageProductUI extends javax.swing.JFrame {
     private javax.swing.JButton updateBtn;
 
     private DefaultTableModel prodModel;
+
+    private javax.swing.JButton backBtn;
 }
 // End of variables declaration

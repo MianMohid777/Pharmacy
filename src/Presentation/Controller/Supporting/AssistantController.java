@@ -20,6 +20,8 @@ public class AssistantController {
 
     private static Order order;
 
+    private List<Product> lowStock;
+
     private static ItemContainer container;
 
     private HashMap<String,Product> productMap;
@@ -27,6 +29,7 @@ public class AssistantController {
         productService = new ProductS_I();
         orderService = new OrderS_I();
         order = new Order();
+        lowStock = new LinkedList<>();
 
         List<Product> productList = productService.getAllProducts();
 
@@ -163,6 +166,9 @@ public class AssistantController {
                 int newStockQty = p.getStockQty() - qty;
                 int packReduce = newStockQty / p.getQtyPerPack();
 
+                //if(newStockQty % p.getQtyPerPack() != 0)
+                   // packReduce;
+
                 if(packReduce != p.getPackQty())
                 {
                     int reducedNum = p.getPackQty() - packReduce;
@@ -266,6 +272,14 @@ public class AssistantController {
 
     public void setProductMap(HashMap<String, Product> productMap) {
         this.productMap = productMap;
+    }
+
+    public List<Product> getLowStock() {
+        return lowStock;
+    }
+
+    public void setLowStock(List<Product> lowStock) {
+        this.lowStock = lowStock;
     }
 
     public static Order getOrder() {

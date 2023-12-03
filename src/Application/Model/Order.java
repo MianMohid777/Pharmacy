@@ -75,7 +75,7 @@ public class Order extends ItemContainer{
             PdfWriter.getInstance(document, new FileOutputStream("/Users/FullStackMohid/IdeaProjects/PharamacyPos/Invoices/POS-Invoice-" + id + ".pdf"));
             document.open();
 
-            Image logo = Image.getInstance("/Users/FullStackMohid/Desktop/REETRO/Hehe.jpg");
+            Image logo = Image.getInstance("/Users/FullStackMohid/IdeaProjects/PharamacyPos/src/Resources.PharmacyLogo.jpeg");
             logo.scaleToFit(100, 100);
             logo.setAlignment(Element.ALIGN_CENTER);
             document.add(logo);

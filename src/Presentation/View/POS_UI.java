@@ -13,6 +13,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -30,9 +32,9 @@ public class POS_UI extends javax.swing.JFrame {
 
     private void initComponents() throws SQLException {
 
-        PharmacyController controller = new PharmacyController();
-        PharmacyController.assistantController = new AssistantController();
-        PharmacyController.managerController = new ManagerController();
+        if(PharmacyController.assistantController == null)
+           PharmacyController.assistantController = new AssistantController();
+
 
 
         mainPanel1 = new javax.swing.JPanel();
@@ -65,6 +67,7 @@ public class POS_UI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         mainPanel1.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel1.setFont(new java.awt.Font("Avenir", 0, 14)); // NOI18N
@@ -637,6 +640,26 @@ public class POS_UI extends javax.swing.JFrame {
         );
 
         pack();
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                super.windowOpened(e);
+
+                List<Product> lowStockP = PharmacyController.assistantController.getLowStock();
+
+                if(!lowStockP.isEmpty())
+                {
+                    StringBuilder alert = new StringBuilder("These Product(s) are in Low Stock: ");
+
+                    for(Product p: lowStockP)
+                    {
+                        alert.append(p.getName()).append(" | ");
+                    }
+                    JOptionPane.showMessageDialog(POS_UI.this,alert);
+                }
+            }
+        });
     }
 
 

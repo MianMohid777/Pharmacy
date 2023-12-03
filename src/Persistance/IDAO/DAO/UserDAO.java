@@ -53,7 +53,7 @@ public class UserDAO implements IDAO<User> {
         Connection conn = DB_Connection.getConnection();
         String query = "DELETE FROM user WHERE userName = ?";
         PreparedStatement statement = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        statement.setInt(1, (Integer) id);
+        statement.setString(1, (String) id);
         statement.executeUpdate();
     }
 
@@ -70,11 +70,11 @@ public class UserDAO implements IDAO<User> {
 
             u.setName(rs.getString(2));
             u.setUserName(rs.getString(3));
-            u.setPassWord(rs.getString(3));
+            u.setPassWord(rs.getString(4));
 
-            if(rs.getString(4).equals("M"))
+            if(rs.getString(5).equals("M"))
                 u.setRole(new Manager());
-            else if(rs.getString(4).equals("A"))
+            else if(rs.getString(5).equals("A"))
                u.setRole(new Sales_Assistant());
             else
                 u.setRole(null);

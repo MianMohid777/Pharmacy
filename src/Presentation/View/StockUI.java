@@ -25,8 +25,6 @@ public class StockUI extends javax.swing.JFrame {
 
     private void initComponents() throws SQLException {
 
-        PharmacyController controller = new PharmacyController();
-        PharmacyController.managerController = new ManagerController();
         sqlDateModel1 = new SqlDateModel();
         sqlDateModel2 = new SqlDateModel();
         jPanel1 = new javax.swing.JPanel();
@@ -314,6 +312,9 @@ public class StockUI extends javax.swing.JFrame {
         backBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                ManagerDashUI managerDashUI = new ManagerDashUI();
+                managerDashUI.setVisible(true);
                 dispose();
             }
         });
