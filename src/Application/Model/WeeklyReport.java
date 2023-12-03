@@ -1,5 +1,6 @@
 package Application.Model;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class WeeklyReport extends Report implements SalesReport {
@@ -8,6 +9,11 @@ public class WeeklyReport extends Report implements SalesReport {
     public void assignData(HashMap<String, Vector<Object>> reportData)
     {
         super.setReportData(reportData);
+    }
+
+    @Override
+    public void assignDate(LocalDate start, LocalDate end) {
+
     }
 
     @Override

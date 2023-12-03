@@ -24,6 +24,7 @@ public class UserController {
        users = new LinkedList<>();
 
        users = findAll();
+       u = null;
     }
 
     public Boolean logIn(String userName, String password) throws SQLException {
@@ -93,6 +94,7 @@ public class UserController {
         u.getRole().permissions();
         PharmacyController.assistantController = null;
         PharmacyController.managerController = null;
+        u = null;
     }
 
     public List<User> findAll() throws SQLException {

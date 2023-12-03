@@ -195,11 +195,11 @@ public class AssistantController {
         return productService.findByName(name);
     }
 
-    Product codeSearch(String code) throws SQLException {
+    public Product codeSearch(String code) throws SQLException {
         return productMap.get(code);
     }
 
-    String checkCodeProd(Product p)
+    public String checkCodeProd(Product p)
     {
         return p.getCode();
     }
@@ -239,7 +239,7 @@ public class AssistantController {
             return lowStock;
         }
 
-        return null;
+        return new LinkedList<>();
     }
 
     public ProductService getProductService() {

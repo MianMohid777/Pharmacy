@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.GregorianCalendar;
@@ -181,9 +182,11 @@ public class ReportUI extends javax.swing.JFrame {
 
                                 try {
                                     PharmacyController.managerController.SalesReport("CUSTOM",startDate,endDate);
-                                } catch (SQLException ex) {
+                                } catch (SQLException | IOException ex) {
                                     throw new RuntimeException(ex);
                                 }
+
+                                JOptionPane.showMessageDialog(ReportUI.this, "Sales Report Generated");
                             }
                         }
                         else {
@@ -202,7 +205,11 @@ public class ReportUI extends javax.swing.JFrame {
                                     PharmacyController.managerController.SalesReport(type,null,null);
                                 } catch (SQLException ex) {
                                     throw new RuntimeException(ex);
+                                } catch (IOException ex) {
+                                    throw new RuntimeException(ex);
                                 }
+
+                                JOptionPane.showMessageDialog(ReportUI.this, "Sales Report Generated");
                             }
                         }
 

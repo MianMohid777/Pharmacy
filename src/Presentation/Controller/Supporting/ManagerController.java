@@ -8,6 +8,7 @@ import Application.Service.Implementation.ProductS_I;
 import Application.Service.OrderService;
 import Application.Service.ProductService;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -333,7 +334,7 @@ public class ManagerController {
     ///////////////////////-------REPORT----////////////////////////////////
 
 
-    public void SalesReport(String type,LocalDate from,LocalDate to) throws SQLException {
+    public void SalesReport(String type,LocalDate from,LocalDate to) throws SQLException, IOException {
 
         LocalDateTime start = LocalDateTime.now();
         LocalDateTime end = LocalDateTime.now();
@@ -422,8 +423,32 @@ public class ManagerController {
        {
            report.assignData(categoryStats);
 
+           report.assignDate(LocalDate.from(start),LocalDate.from(end));
+
            report.createSalesReport();
        }
+    }
+
+    public void InventoryReport() throws SQLException
+    {
+           HashMap<String,List<Vector<Object>>> stockProdMap = new HashMap<>();
+
+           Set<String> keys = productMap.keySet();
+
+           Vector<Integer> availStock = new Vector<>();
+
+           for(String key: keys)
+           {
+               Product p = productMap.get(key);
+
+               List<Vector<Object>> stockData = productService.getStocksOfProduct(key);
+
+               stockProdMap.put(p.getName(),stockData);
+
+               availStock.add(p.getStockQty());
+           }
+
+
     }
 
 
@@ -463,7 +488,7 @@ public class ManagerController {
     {
         return productService.getStocksOfProduct(code);
     }
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, IOException {
         ManagerController controller = new ManagerController();
 
 
